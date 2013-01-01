@@ -12,7 +12,7 @@ export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 export GREP_OPTIONS='--color=auto'
 
 # Source 'Generic Colourizer' from brew
-source "`brew --prefix`/etc/grc.bashrc" 
+# source "`brew --prefix`/etc/grc.bashrc" 
 
 # Make the `rm` command as for confirmation
 alias rm='rm -i'
