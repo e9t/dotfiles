@@ -77,11 +77,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -101,26 +96,3 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-# Tell 'ls' to be colorful
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagacedx
-export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
-
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
-
-# Source 'Generic Colourizer' from brew
-source "`brew --prefix`/etc/grc.bashrc" 
-
-# Make the `rm` command as for confirmation
-alias rm='rm -i'
-alias tl='tree -L 2'
-alias pop='ssh lucypark@popong.com'
-alias dmlab='ssh lucypark@lucypark.net'
-alias gitundo='git reset --soft HEAD^'
-alias chrome='open -a Google\ Chrome'
-
-export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
