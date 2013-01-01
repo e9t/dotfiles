@@ -122,3 +122,5 @@ alias gitundo='git reset --soft HEAD^'
 alias chrome='open -a Google\ Chrome'
 
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
