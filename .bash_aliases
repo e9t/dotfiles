@@ -21,6 +21,7 @@ alias pop='ssh lucypark@popong.com'
 alias dmlab='ssh lucypark@lucypark.net'
 alias gitundo='git reset --soft HEAD^'
 alias chrome='open -a Google\ Chrome'
+alias pyserv='python -m SimpleHTTPServer 8888 &'
 
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
 
