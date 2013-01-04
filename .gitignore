@@ -7,9 +7,9 @@
 
 .dropbox
 .filezilla
-.netrwhist
 .Rapp.history
 .Xauthority
+.z
 
 ctrlp
 fontconfig

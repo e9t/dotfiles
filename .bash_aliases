@@ -22,7 +22,11 @@ alias dmlab='ssh lucypark@lucypark.net'
 alias gitundo='git reset --soft HEAD^'
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer 8888 &'
+alias filezilla='open /Applications/FileZilla.app/'
+alias profile='python -m cProfile'
+
+# z
+. /usr/local/etc/profile.d/z.sh
 
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
