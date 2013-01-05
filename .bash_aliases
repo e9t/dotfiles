@@ -25,6 +25,7 @@ alias filezilla='open /Applications/FileZilla.app/'
 alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
 alias ipython='ipython --no-confirm-exit'
+alias gh='git hist'
 
 # z
 . /usr/local/etc/profile.d/z.sh
