@@ -3,6 +3,7 @@
 .Trash
 .viminfo
 .bash_history
+.netrwhist
 .ssh
 
 .dropbox
@@ -10,6 +11,9 @@
 .Rapp.history
 .Xauthority
 .z
+.ipython/
+.sunlight.key
+.lesshst
 
 ctrlp
 fontconfig

@@ -1,3 +1,11 @@
 [user]
 	name = Lucy Park
 	email = 525600min@gmail.com
+
+[color]
+    ui = auto
+
+[alias]
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    forget = rm --cached
+    unstage = reset --soft HEAD^
