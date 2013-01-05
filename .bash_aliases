@@ -23,6 +23,7 @@ alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer 8888 &'
 alias filezilla='open /Applications/FileZilla.app/'
 alias profile='python -m cProfile'
+alias profilec='python -m cProfile --sort=cumulative'
 alias ipython='ipython --no-confirm-exit'
 
 # z
@@ -32,3 +33,6 @@ alias ipython='ipython --no-confirm-exit'
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/share/python # For pip 
+
+# SCM Breeze
+[ -s "/Users/lucypark/.scm_breeze/scm_breeze.sh" ] && source "/Users/lucypark/.scm_breeze/scm_breeze.sh"
