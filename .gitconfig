@@ -9,3 +9,6 @@
     hist = log --pretty=format:\"%h | %ad | %an > %s%d\" --graph --date=short
     forget = rm --cached
     unstage = reset --soft HEAD^
+
+[push]
+	default = simple
