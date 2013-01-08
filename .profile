@@ -8,8 +8,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/usr/local/texlive/2012/bin/universal-darwin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
+# set locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
