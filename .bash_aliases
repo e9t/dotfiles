@@ -27,14 +27,16 @@ alias profilec='python -m cProfile --sort=cumulative'
 alias ipython='ipython --no-confirm-exit'
 alias gh='git hist'
 alias gae='dev_appserver.py --port=8192 .'
+alias gaeup='appcfg.py update .'
 
 # z
 . /usr/local/etc/profile.d/z.sh
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:/usr/local/share/python # For pip 
+# PATH=$PATH:$HOME/.rvm/bin                                 # For RVM scripting
+PATH=$PATH:/usr/local/share/python                          # For pip 
+PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For LaTeX
 
 # SCM Breeze
 [ -s "/Users/lucypark/.scm_breeze/scm_breeze.sh" ] && source "/Users/lucypark/.scm_breeze/scm_breeze.sh"
