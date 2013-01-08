@@ -26,6 +26,7 @@ alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
 alias ipython='ipython --no-confirm-exit'
 alias gh='git hist'
+alias gae='dev_appserver.py --port=8192 .'
 
 # z
 . /usr/local/etc/profile.d/z.sh
