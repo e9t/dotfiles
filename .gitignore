@@ -1,3 +1,4 @@
+# mac defaults
 .CFUserTextEncoding
 .DS_Store
 .Trash
@@ -5,7 +6,9 @@
 .bash_history
 .netrwhist
 .ssh
+README.md
 
+# applications
 .dropbox
 .filezilla
 .Rapp.history
@@ -15,7 +18,25 @@
 .sunlight.key
 .lesshst
 .scm_breeze/
+.appcfg_cookies
+.irssi/
+.npm/
+.gitconfig
 
+# files in folders
 ctrlp
 fontconfig
 pip.log
+
+# folders
+Desktop/
+Documents/
+Downloads/
+Dropbox/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+data/
+dev/
