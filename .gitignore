@@ -1,16 +1,15 @@
 # mac defaults
 .CFUserTextEncoding
 .DS_Store
-.Trash
+.Trash/
 .viminfo
 .bash_history
-.netrwhist
-.ssh
+.ssh/
 README.md
 
-# applications
-.dropbox
-.filezilla
+# apps & libs
+.dropbox/
+.filezilla/
 .Rapp.history
 .Xauthority
 .z
@@ -22,8 +21,11 @@ README.md
 .irssi/
 .npm/
 .gitconfig
+.matplotlib/
+.virtualenvs/
 
 # files in folders
+.netrwhist
 ctrlp
 fontconfig
 pip.log
