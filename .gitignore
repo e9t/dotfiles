@@ -23,6 +23,7 @@ README.md
 .gitconfig
 .matplotlib/
 .virtualenvs/
+.jline-jython.history
 
 # files in folders
 .netrwhist
