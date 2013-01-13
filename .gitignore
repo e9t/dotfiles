@@ -24,6 +24,8 @@ README.md
 .matplotlib/
 .virtualenvs/
 .jline-jython.history
+.gem/
+.rvm/
 
 # files in folders
 .netrwhist

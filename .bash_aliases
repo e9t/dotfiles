@@ -34,10 +34,13 @@ alias gaeup='appcfg.py update .'
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
-# PATH=$PATH:$HOME/.rvm/bin                                 # For RVM scripting
+PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
 PATH=$PATH:/usr/local/share/python                          # For pip 
 PATH=$PATH:/usr/texbin/                                     # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 
 # SCM Breeze
 [ -s "/Users/lucypark/.scm_breeze/scm_breeze.sh" ] && source "/Users/lucypark/.scm_breeze/scm_breeze.sh"
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
