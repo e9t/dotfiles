@@ -26,6 +26,8 @@ README.md
 .jline-jython.history
 .gem/
 .rvm/
+.Rprofile
+.htoprc
 
 # files in folders
 .netrwhist
