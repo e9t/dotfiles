@@ -36,7 +36,7 @@ alias gaeup='appcfg.py update .'
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
 PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
 PATH=$PATH:/usr/local/share/python                          # For pip 
-PATH=$PATH:/usr/texbin/                                     # For TeX
+PATH=$PATH:/usr/texbin                                      # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 
 # SCM Breeze
