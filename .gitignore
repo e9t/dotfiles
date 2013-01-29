@@ -27,6 +27,8 @@ README.md
 .rvm/
 .Rprofile
 .htoprc
+.dbshell
+.mongorc.js
 
 # files in folders
 .netrwhist
