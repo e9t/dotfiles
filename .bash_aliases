@@ -28,6 +28,7 @@ alias profilec='python -m cProfile --sort=cumulative'
 alias gh='git hist'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
+alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
 
 # z
 . /usr/local/etc/profile.d/z.sh
@@ -44,3 +45,12 @@ PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Unicode printing functions
+ucat() {
+  native2ascii -encoding UTF-8 -reverse $1
+}
+
+uhead() {
+  head $1 | native2ascii -encoding UTF-8 -reverse
+}
