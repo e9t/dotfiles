@@ -29,6 +29,9 @@ alias gh='git hist'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
 alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
+alias start_mongo='mongod --fork'
+alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
+alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo 'stopped'; fi"
 
 # z
 . /usr/local/etc/profile.d/z.sh
