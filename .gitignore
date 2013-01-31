@@ -29,6 +29,7 @@ README.md
 .htoprc
 .dbshell
 .mongorc.js
+.sqlite_history
 
 # files in folders
 .netrwhist
