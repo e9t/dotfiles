@@ -98,6 +98,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Functions
-if [ -f ~/.bash_functions]; then
+if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
