@@ -32,6 +32,9 @@ alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
 alias start_mongo='mongod --fork'
 alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
 alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo 'stopped'; fi"
+alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
+alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 
 # z
 . /usr/local/etc/profile.d/z.sh
