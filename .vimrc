@@ -413,3 +413,6 @@ autocmd! BufNewFile * silent! 0r ~/.vim/skel/template.%:e
 
 " Prompt 'yes'/'no'/'cancel' if closing with unsaved changes
 set confirm
+
+" For Vim-R-plugin
+set nocompatible

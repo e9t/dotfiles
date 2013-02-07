@@ -1,0 +1,27 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2628
+
+This plugin improves Vim's support for editing R code and makes it possible to integrate Vim with R. The functionality is similar to what you can find in Tinn-R and ESS mode of Emacs. This filetype plugin uses Tmux and the Screen plugin (Linux, OS X, or other Unix, vimscript #2711) or Python (Microsoft Windows) or Apple Script (Mac OS X) to communicate with R. 
+
+Screenshots and Debian package: http://www.lepem.ufc.br/jaa/vim-r-plugin.html
+Development code: https://github.com/jcfaria/Vim-R-plugin
+
+MAIN FEATURES:
+
+  * Communication with R.
+  * Omni completion (auto-completion) for R objects and function arguments.
+  * Ability to see R's documentation in a Vim's buffer.
+  * Object Browser.
+  * Syntax highlighting for R, RHelp, RMarkdown and RreStructuredText code.
+  * Smart indentation for R, RHelp, RMarkdown and RreStructuredText syntax.
+  * Most of the plugin's behavior is customizable.
+
+    For a detailed list of features, see: http://www.lepem.ufc.br/jaa/r-plugin.html#r-plugin-features
+
+USE:
+
+   See http://www.lepem.ufc.br/jaa/r-plugin.html#r-plugin-use
+
+FILES:
+
+   See http://www.lepem.ufc.br/jaa/r-plugin.html#r-plugin-files
+

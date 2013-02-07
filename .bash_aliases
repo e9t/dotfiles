@@ -57,3 +57,7 @@ ucat() {
 uhead() {
   head $1 | native2ascii -encoding UTF-8 -reverse
 }
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export RBENV_ROOT=/usr/local/opt/rbenv
