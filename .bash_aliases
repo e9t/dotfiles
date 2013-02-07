@@ -49,15 +49,6 @@ PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Unicode printing functions
-ucat() {
-  native2ascii -encoding UTF-8 -reverse $1
-}
-
-uhead() {
-  head $1 | native2ascii -encoding UTF-8 -reverse
-}
-
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export RBENV_ROOT=/usr/local/opt/rbenv
