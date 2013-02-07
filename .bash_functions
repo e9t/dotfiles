@@ -20,9 +20,8 @@ rmd2html() {
     #TODO: Get optional parameter for css file
     html="${1%.*}.html"
     echo "create $html"
-    if [ ! -d "css" ]; then
+    if [ -f "css/custom-bootstrap.css" ]; then
         echo "include custom-bootstrap.css"
-        ln -s ~/dev/pkgs/css/custom-bootstrap/ css
         pandoc $tmp -o $html -c css/bootstrap.css
     else
         pandoc $tmp -o $html
