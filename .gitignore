@@ -30,6 +30,7 @@ README.md
 .dbshell
 .mongorc.js
 .sqlite_history
+.qgis/
 
 # files in folders
 .netrwhist
