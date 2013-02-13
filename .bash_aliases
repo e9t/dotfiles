@@ -36,6 +36,7 @@ alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo '
 alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
+alias gw='http://localhost:1234/?o=age'
 
 # z
 . /usr/local/etc/profile.d/z.sh
