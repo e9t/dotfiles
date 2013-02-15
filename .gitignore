@@ -30,6 +30,7 @@
 .mongorc.js
 .sqlite_history
 .qgis/
+.psql_history
 
 # files in folders
 .netrwhist
