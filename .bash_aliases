@@ -37,7 +37,7 @@ alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 alias gw='open http://localhost:1234/?o=age'
-alias excel='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
+alias excel='open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
 
 # z
 . /usr/local/etc/profile.d/z.sh
