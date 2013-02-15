@@ -416,3 +416,7 @@ set confirm
 
 " For Vim-R-plugin
 set nocompatible
+
+" For pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()

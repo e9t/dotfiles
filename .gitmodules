@@ -1,0 +1,19 @@
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+
+[submodule ".vim/bundle/screen"]
+	path = .vim/bundle/screen
+	url = https://github.com/ervandew/screen.git
+
+[submodule ".vim/bundle/Vim-R-plugin"]
+	path = .vim/bundle/Vim-R-plugin
+	url = https://github.com/jcfaria/Vim-R-plugin.git
