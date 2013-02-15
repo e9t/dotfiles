@@ -390,10 +390,10 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 14. Customized
+" 14. Customized (Overrrides current file settings)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Overriding current file settings
 set foldcolumn=0
 
 " Sets line number
