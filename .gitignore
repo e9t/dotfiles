@@ -5,7 +5,6 @@
 .viminfo
 .bash_history
 .ssh/
-README.md
 
 # apps & libs
 .dropbox/
@@ -37,6 +36,7 @@ README.md
 ctrlp
 fontconfig
 pip.log
+.VimballRecord
 
 # folders
 Desktop/
