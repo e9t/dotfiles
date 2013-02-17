@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Unicode printing
 ucat() {
   [[ -n "$1" ]] || { echo "Usage: ucat [file]"; return; }
@@ -10,7 +12,6 @@ uhead() {
 }
 
 # File conversion
-
 rmd2html() {
     [[ -n "$1" ]] || { echo "Usage: rmd2html [file]"; return; }
 
@@ -30,4 +31,25 @@ rmd2html() {
     echo "cleaning up..."
     rm -f $tmp
     echo "done"
+}
+
+# Hacker's diary
+diary() {
+    [[ -n "$1" ]] || { echo "Usage: diary [title]"; return; }
+
+    dir="/Users/lucypark/dev/my/diary"
+    fname=$dir/$(date "+%Y-%m-%d")-${1// /-}.md
+    echo $fname
+
+    temp[0]="'''"
+    temp[1]="layout: post"
+    temp[2]="title: $1"
+    temp[3]="date: $(date '+%Y-%m-%d %H:%M')"
+    temp[4]="comments: false"
+    temp[5]="categories: []"
+    temp[6]="original: null"
+    temp[7]="'''"
+
+    printf "%s\n" "${temp[@]}" > $fname
+    vi $fname
 }
