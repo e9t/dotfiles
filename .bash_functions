@@ -23,7 +23,7 @@ rmd2html() {
     echo "create $html"
     if [ -f "css/custom-bootstrap.css" ]; then
         echo "include custom-bootstrap.css"
-        pandoc $tmp -o $html -c css/bootstrap.css
+        pandoc $tmp -o $html -c css/custom-bootstrap.css
     else
         pandoc $tmp -o $html
     fi
@@ -31,6 +31,7 @@ rmd2html() {
     echo "cleaning up..."
     rm -f $tmp
     echo "done"
+    open $html
 }
 
 # Hacker's diary
