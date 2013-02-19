@@ -39,7 +39,13 @@ diary() {
     [[ -n "$1" ]] || { echo "Usage: diary [title]"; return; }
 
     dir="/Users/lucypark/dev/my/diary"
-    fname=$dir/$(date "+%Y-%m-%d")-${1// /-}.md
+    #TODO: filename - transliterate hangul to roman letters
+    strip=${1//-/}
+    merge=${strip// /-}
+    clean=${merge//[^a-zA-Z0-9\-]/}
+    lower="$(echo $clean | tr '[:upper:]' '[:lower:]')"
+    short=${lower:0:30}
+    fname=$dir/$(date "+%Y-%m-%d")-$short.md
     echo $fname
 
     temp[0]="'''"
