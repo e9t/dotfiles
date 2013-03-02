@@ -38,7 +38,7 @@ rmd2html() {
 diary() {
     [[ -n "$1" ]] || { echo "Usage: diary [title]"; return; }
 
-    dir="/Users/lucypark/dev/my/diary"
+    dir="/Users/lucypark/docs/diary"
     #TODO: filename - transliterate hangul to roman letters
     strip=${1//-/}
     merge=${strip// /-}
