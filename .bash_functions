@@ -44,8 +44,9 @@ diary() {
     merge=${strip// /-}
     clean=${merge//[^a-zA-Z0-9\-]/}
     lower="$(echo $clean | tr '[:upper:]' '[:lower:]')"
-    short=${lower:0:30}
-    fname=$dir/$(date "+%Y-%m-%d")-$short.md
+    short="${lower:0:30}"
+    final=${short//-./.}
+    fname=$dir/$(date "+%Y-%m-%d")-$final.md
     echo $fname
 
     temp[0]="'''"
