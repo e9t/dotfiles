@@ -58,3 +58,7 @@ PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export RBENV_ROOT=/usr/local/opt/rbenv
+
+# Timing
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
