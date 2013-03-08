@@ -1,4 +1,4 @@
-# Lucy's Dotfiles
+# Lucy's Dotfiles (for Mac)
 
 My dotfiles are near complete and much satisfactory, thanks to the myriad developers out there who opened up their codes!
 
