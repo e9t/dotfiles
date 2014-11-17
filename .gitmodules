@@ -10,14 +10,13 @@
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 
-[submodule ".vim/bundle/screen"]
-	path = .vim/bundle/screen
-	url = https://github.com/ervandew/screen.git
-
-[submodule ".vim/bundle/Vim-R-plugin"]
-	path = .vim/bundle/Vim-R-plugin
-	url = https://github.com/jcfaria/Vim-R-plugin.git
-
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
+
+[submodule ".scm_breeze"]
+	path = .scm_breeze
+	url = https://github.com/ndbroadbent/scm_breeze.git
+[submodule "bin/z"]
+	path = bin/z
+	url = https://github.com/rupa/z.git

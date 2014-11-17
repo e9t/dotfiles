@@ -1,3 +1,0 @@
-# Tell Google App Engine to check for new versions
-opt_in: true
-timestamp: 1357457186.090092

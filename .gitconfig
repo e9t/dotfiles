@@ -1,17 +1,3 @@
 [user]
 	name = Lucy Park
 	email = me@lucypark.kr
-
-[color]
-    ui = auto
-
-[alias]
-    hist = log --pretty=format:\"%h | %ad | %an > %s%d\" --graph --date=short
-    forget = rm --cached
-    unstage = reset --soft HEAD^
-
-[push]
-    default = simple
-
-[core]
-	excludesfile = /Users/lucypark/.gitignore_global

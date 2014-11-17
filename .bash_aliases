@@ -26,7 +26,6 @@ alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
 alias ipynote='ipython notebook'
 #alias ipython='ipython --no-confirm-exit'
-alias gh='git hist'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
 alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
@@ -38,9 +37,11 @@ alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 alias gw='open http://localhost:1234/?o=age'
 alias excel='open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
-
-# z
-. /usr/local/etc/profile.d/z.sh
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
@@ -50,7 +51,7 @@ PATH=$PATH:/usr/texbin                                      # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 
 # SCM Breeze
-[ -s "/Users/lucypark/.scm_breeze/scm_breeze.sh" ] && source "/Users/lucypark/.scm_breeze/scm_breeze.sh"
+[ -s "/Users/e9t/.scm_breeze/scm_breeze.sh" ] && source "/Users/e9t/.scm_breeze/scm_breeze.sh"
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -62,3 +63,6 @@ export RBENV_ROOT=/usr/local/opt/rbenv
 # Timing
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
+
+# z
+. /Users/e9t/bin/z/z.sh
