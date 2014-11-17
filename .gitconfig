@@ -1,3 +1,5 @@
 [user]
 	name = Lucy Park
 	email = me@lucypark.kr
+[push]
+	default = simple
