@@ -38,12 +38,13 @@ alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 alias gw='open http://localhost:1234/?o=age'
 alias excel='reattach-to-user-namespace open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
 alias subl='reattach-to-user-namespace subl'
+alias open='reattach-to-user-namespace open'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-alias dmweb="ssh epark@110.10.174.85"
+alias dmweb="ssh epark@dm.snu.ac.kr"
 alias f="open ."
 
 # Export variables
