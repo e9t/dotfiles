@@ -16,7 +16,8 @@
 
 [submodule ".scm_breeze"]
 	path = .scm_breeze
-	url = https://github.com/ndbroadbent/scm_breeze.git
+	url = https://github.com/e9t/scm_breeze.git
+
 [submodule "bin/z"]
 	path = bin/z
 	url = https://github.com/rupa/z.git
