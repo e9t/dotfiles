@@ -36,13 +36,15 @@ alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 alias gw='open http://localhost:1234/?o=age'
-alias excel='open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
+alias excel='reattach-to-user-namespace open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
+alias subl='reattach-to-user-namespace subl'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias dmweb="ssh epark@110.10.174.85"
+alias f="open ."
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
