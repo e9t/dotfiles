@@ -1,9 +1,27 @@
 #! /bin/bash
 
+. ~/.bash_constants
+
 # Unicode printing
 ucat() {
   [[ -n "$1" ]] || { echo "Usage: ucat [file]"; return; }
   native2ascii -encoding UTF-8 -reverse $1
+}
+
+uconv() {
+  [[ -n "$1" ]] || { echo "Usage: uconv [file]"; return; }
+  iconv -f euc-kr -t UTF-8 $1 >> tmp.txt
+  mv tmp.txt $1
+  echo "Converted $1"
+}
+
+uconvs() {
+  [[ -n "$1" ]] || { echo "Usage: uconvs [some extension]"; return; }
+  for file in *.$1
+  do
+      iconv -f euckr -t utf8 "$file" | sponge "$file"
+      echo "Converted $file"
+  done
 }
 
 uhead() {
@@ -38,7 +56,7 @@ rmd2html() {
 diary() {
     [[ -n "$1" ]] || { echo "Usage: diary [title]"; return; }
 
-    dir="/Users/lucypark/docs/diary"
+    dir=$DIARY_DIR
     #TODO: filename - transliterate hangul to roman letters
     strip=${1//-/}
     merge=${strip// /-}
@@ -59,5 +77,52 @@ diary() {
     temp[7]="'''"
 
     printf "%s\n" "${temp[@]}" > $fname
+    vi $fname
+}
+
+meeting() {
+    [[ -n "$1" ]] || { echo "Usage: meeting [title]"; return; }
+
+    dir=$MEETING_DIR
+    strip=${1//-/}
+    merge=${strip// /-}
+    clean=${merge//[^a-zA-Z0-9\-]/}
+    lower="$(echo $clean | tr '[:upper:]' '[:lower:]')"
+    short="${lower:0:30}"
+    final=${short//-./.}
+    fname=$dir/$(date "+%Y-%m-%d")-$final.md
+    echo $fname
+
+    temp[0]="---"
+    temp[1]="layout: meeting"
+    temp[2]="title: \"$1\""
+    temp[3]="date: $(date '+%Y-%m-%d %H:%M')"
+    temp[4]="comments: false"
+    temp[5]="categories: []"
+    temp[6]="original: null"
+    temp[7]="---"
+
+    printf "%s\n" "${temp[@]}" > $fname
+    vi $fname
+}
+
+# Compile TeX and open pdf
+ctex() {
+    [[ -n "$1" ]] || { echo "Usage: ctex [somefile].tex"; return; }
+    pdflatex -shell-escape $1
+    bibtex ${1/.tex}.aux
+    pdflatex $1
+    pdflatex $1
+    open ${1/.tex}.pdf
+}
+
+remark() {
+    cp -r ~/skel/remark/* .
+}
+
+research() {
+    dir=$RESEARCH_DIR
+    fname=$dir/$(date "+%Y-%m-%d").md
+    echo $fname
     vi $fname
 }

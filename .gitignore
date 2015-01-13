@@ -1,6 +1,6 @@
 # mac defaults
 .CFUserTextEncoding
-.DS_Store
+*.DS_Store*
 .Trash/
 .viminfo
 .bash_history

@@ -11,6 +11,10 @@ export PS1='\n\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# Set locales
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Source 'Generic Colourizer' from brew
 # source "`brew --prefix`/etc/grc.bashrc" 
 
@@ -18,13 +22,14 @@ export GREP_OPTIONS='--color=auto'
 alias rm='rm -i'
 alias tl='tree -L 2'
 alias pop='ssh lucypark@popong.com'
-alias dmlab='ssh lucypark@147.46.94.186'
+alias dada='ssh epark@147.46.94.182'
+alias dmweb="ssh epark@dm.snu.ac.kr"
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer'
 alias filezilla='open /Applications/FileZilla.app/'
 alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
-alias ipynote='ipython notebook'
+alias ipnote='ipython notebook --pylab inline'
 #alias ipython='ipython --no-confirm-exit'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
@@ -39,18 +44,24 @@ alias gw='open http://localhost:1234/?o=age'
 alias excel='reattach-to-user-namespace open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
 alias subl='reattach-to-user-namespace subl'
 alias open='reattach-to-user-namespace open'
+alias gitk='reattach-to-user-namespace gitk'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-alias dmweb="ssh epark@dm.snu.ac.kr"
 alias f="open ."
+alias gistup="gistup --private --"
+alias venv="virtualenv venv"
+alias agi="ag --ignore-dir"
+alias ports="sudo netstat -plnt"
+alias duh='du -d 0 -h'
+alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
+export JAVA_HOME="/usr/libexec/java_home -v 1.8"
 PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
-PATH=$PATH:/usr/local/share/python                          # For pip 
 PATH=$PATH:/usr/texbin                                      # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 

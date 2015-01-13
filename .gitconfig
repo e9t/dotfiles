@@ -1,5 +1,7 @@
 [user]
-	name = Lucy Park
-	email = me@lucypark.kr
+    name = Lucy Park
+    email = me@lucypark.kr
 [push]
-	default = simple
+    default = simple
+[alias]
+    unstage = reset --soft HEAD^
