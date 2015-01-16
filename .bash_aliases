@@ -60,7 +60,7 @@ alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
-export JAVA_HOME="/usr/libexec/java_home -v 1.8"
+export JAVA_HOME="$(/usr/libexec/java_home)"
 PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
 PATH=$PATH:/usr/texbin                                      # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
