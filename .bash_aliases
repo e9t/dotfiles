@@ -31,6 +31,7 @@ alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
 alias ipnote='ipython notebook --pylab inline'
 #alias ipython='ipython --no-confirm-exit'
+alias python='time python'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
 alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
@@ -52,7 +53,7 @@ alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias f="open ."
 alias gistup="gistup --private --"
-alias venv="virtualenv venv"
+alias venv="source venv/bin/activate"
 alias agi="ag --ignore-dir"
 alias ports="sudo netstat -plnt"
 alias duh='du -d 0 -h'

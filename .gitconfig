@@ -5,3 +5,5 @@
     default = simple
 [alias]
     unstage = reset --soft HEAD^
+[core]
+	editor = /usr/bin/vim

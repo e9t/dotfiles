@@ -115,7 +115,7 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme xterm16 
+    colorscheme solarized
 catch
 endtry
 

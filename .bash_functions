@@ -29,6 +29,11 @@ uhead() {
   head $1 | native2ascii -encoding UTF-8 -reverse
 }
 
+uless() {
+  [[ -n "$1" ]] || { echo "Usage: umore [file]"; return; }
+  cat $1 | native2ascii -encoding UTF-8 -reverse | less
+}
+
 # File conversion
 rmd2html() {
     [[ -n "$1" ]] || { echo "Usage: rmd2html [file]"; return; }
@@ -125,4 +130,10 @@ research() {
     fname=$dir/$(date "+%Y-%m-%d").md
     echo $fname
     vi $fname
+}
+
+mmd2html() {
+    [[ -n "$1" ]] || { echo "Usage: mmd2html [input.md] [output.md]"; return; }
+    python -c "from lutils import conv; conv.md2html(\"$1\", \"$2\")"
+    echo "Done."
 }
