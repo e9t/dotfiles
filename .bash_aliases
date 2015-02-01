@@ -14,6 +14,7 @@ export GREP_OPTIONS='--color=auto'
 # Set locales
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 
 # Source 'Generic Colourizer' from brew
 # source "`brew --prefix`/etc/grc.bashrc" 
