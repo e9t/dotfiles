@@ -34,6 +34,11 @@ uless() {
   cat $1 | native2ascii -encoding UTF-8 -reverse | less
 }
 
+recent() {
+    fn=`ls -t | head -n1`;
+    vi "$fn";
+}
+
 # File conversion
 rmd2html() {
     [[ -n "$1" ]] || { echo "Usage: rmd2html [file]"; return; }
@@ -133,7 +138,7 @@ research() {
 }
 
 mmd2html() {
-    [[ -n "$1" ]] || { echo "Usage: mmd2html [input.md] [output.md]"; return; }
+    [[ -n "$1" ]] || { echo "Usage: mmd2html [input.md] [output.html]"; return; }
     python -c "from lutils import conv; conv.md2html(\"$1\", \"$2\")"
     echo "Done."
 }
