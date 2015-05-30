@@ -35,8 +35,12 @@ uless() {
 }
 
 recent() {
-    fn=`ls -t | head -n1`;
-    vi "$fn";
+    if [ -z "$1" ]
+    then
+        $1=".";
+    fi
+    fn=`ls -t $1 | head -n1`;
+    vi "$1$fn";
 }
 
 # File conversion
