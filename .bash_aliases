@@ -24,17 +24,19 @@ alias rm='rm -i'
 alias tl='tree -L 2'
 alias pop='ssh lucypark@popong.com'
 alias dada='ssh epark@147.46.94.182'
+alias daca='ssh epark@147.46.94.52'
 alias dmweb="ssh epark@dm.snu.ac.kr"
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer'
 alias filezilla='open /Applications/FileZilla.app/'
 alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
-alias ipnote='ipython notebook --pylab inline'
-#alias ipython='ipython --no-confirm-exit'
+#alias ipython='ipython -i -c '"'"'import sys; sys.path.append("/usr/local/lib/python2.7/site-packages")'"'"''
 alias python='time python'
+alias python3='time python3'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
+alias gist='git clone git@gist.github.com:'
 alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
 alias start_mongo='mongod --fork'
 alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
@@ -47,6 +49,7 @@ alias excel='reattach-to-user-namespace open -a /Applications/Microsoft\ Office\
 alias subl='reattach-to-user-namespace subl'
 alias open='reattach-to-user-namespace open'
 alias gitk='reattach-to-user-namespace gitk'
+alias terminal-notifier='reattach-to-user-namespace terminal-notifier'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -58,7 +61,11 @@ alias venv="source venv/bin/activate"
 alias agi="ag --ignore-dir"
 alias ports="sudo netstat -plnt"
 alias duh='du -d 0 -h'
+alias duhs='du -hs * | gsort -h'
 alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
+alias rmed='find . -type d -empty -delete'
+alias spark='/Users/e9t/dev/pkgs/java/spark-1.2.1/bin/pyspark'
+# rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
@@ -66,6 +73,7 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
 PATH=$PATH:/usr/texbin                                      # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
+PATH=/usr/local/sbin:$PATH                                  # For Homebrew
 
 # SCM Breeze
 [ -s "/Users/e9t/.scm_breeze/scm_breeze.sh" ] && source "/Users/e9t/.scm_breeze/scm_breeze.sh"
@@ -83,3 +91,10 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 
 # z
 . /Users/e9t/bin/z/z.sh
+
+# torch
+export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+
+export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
