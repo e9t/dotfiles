@@ -22,10 +22,11 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 # Make the `rm` command as for confirmation
 alias rm='rm -i'
 alias tl='tree -L 2'
-alias pop='ssh lucypark@popong.com'
-alias dada='ssh epark@147.46.94.182'
-alias daca='ssh epark@147.46.94.52'
-alias dmweb="ssh epark@dm.snu.ac.kr"
+alias pop='ssh lucypark@popong.com -t tmux'
+alias dada='ssh epark@147.46.94.182 -t tmux'
+alias daca='ssh epark@147.46.94.52 -t tmux'
+alias merci='ssh epark@147.46.94.186 -t tmux'
+alias dmweb="ssh epark@dm.snu.ac.kr -t tmux"
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer'
 alias filezilla='open /Applications/FileZilla.app/'
@@ -98,3 +99,6 @@ export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added au
 
 export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
 export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+
+# jython
+export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
