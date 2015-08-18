@@ -1,5 +1,6 @@
 #! /bin/bash
 
+
 . ~/.bash_constants
 
 # Unicode printing
@@ -64,6 +65,14 @@ rmd2html() {
     rm -f $tmp
     echo "done"
     open $html
+}
+
+md2tex() {
+    [[ -n "$1" ]] || { echo "Usage: md2tex [file]"; return; }
+
+    pdf=${1/.markdown/.pdf}
+    pandoc --latex-engine=xelatex --include-in-header=$HOME/.ko.tex -t beamer $1 -o $pdf
+    open $pdf
 }
 
 # Hacker's diary
@@ -146,3 +155,5 @@ mmd2html() {
     python -c "from lutils import conv; conv.md2html(\"$1\", \"$2\")"
     echo "Done."
 }
+
+# sed -i '' 's/foo/bar/' file
