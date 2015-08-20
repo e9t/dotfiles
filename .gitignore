@@ -1,6 +1,10 @@
+# ignore all except dotfiles
+*
+!.*
+
 # mac defaults
 .CFUserTextEncoding
-*.DS_Store*
+.DS_Store
 .Trash/
 .viminfo
 .bash_history
@@ -37,18 +41,3 @@ ctrlp
 fontconfig
 pip.log
 .VimballRecord
-
-# folders
-Desktop/
-Documents/
-Downloads/
-Dropbox/
-Library/
-Movies/
-Music/
-Pictures/
-Public/
-data/
-dev/
-docs/
-nltk_data/
