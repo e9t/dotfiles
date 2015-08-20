@@ -2,18 +2,19 @@
 *
 !.*
 
+# all history files
+.*history
+
 # mac defaults
 .CFUserTextEncoding
 .DS_Store
 .Trash/
 .viminfo
-.bash_history
 .ssh/
 
 # apps & libs
 .dropbox/
 .filezilla/
-.Rapp.history
 .Xauthority
 .z
 .ipython/
@@ -24,16 +25,13 @@
 .npm/
 .matplotlib/
 .virtualenvs/
-.jline-jython.history
 .gem/
 .rvm/
 .Rprofile
 .htoprc
 .dbshell
 .mongorc.js
-.sqlite_history
 .qgis/
-.psql_history
 
 # files in folders
 .netrwhist
