@@ -71,8 +71,7 @@ md2tex() {
     [[ -n "$1" ]] || { echo "Usage: md2tex [file]"; return; }
 
     pdf=${1/.markdown/.pdf}
-    pandoc --latex-engine=xelatex --include-in-header=$HOME/.ko.tex -t beamer $1 -o $pdf
-    open $pdf
+    pandoc --latex-engine=xelatex --include-in-header=$HOME/.my.tex -t beamer $1 -o $pdf
 }
 
 # Hacker's diary

@@ -102,3 +102,6 @@ export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added au
 
 # jython
 export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
+
+# heroku toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
