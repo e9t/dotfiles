@@ -105,3 +105,11 @@ export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
 
 # heroku toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
+export WORKON_HOME=~/envs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
+
+# [autoenv](https://github.com/kennethreitz/autoenv)
+source /usr/local/opt/autoenv/activate.sh
