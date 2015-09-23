@@ -70,6 +70,8 @@ rmd2html() {
 md2tex() {
     [[ -n "$1" ]] || { echo "Usage: md2tex [file]"; return; }
 
+    # TODO: replace {% img %} tags with raw latex
+
     pdf=${1/.markdown/.pdf}
     pandoc --latex-engine=xelatex --include-in-header=$HOME/.my.tex -t beamer $1 -o $pdf
 }
@@ -155,4 +157,20 @@ mmd2html() {
     echo "Done."
 }
 
+ipyremote() {
+    pkill -f "ssh -N -n -X -L localhost:18888"
+    ssh -N -n -X -L localhost:18888:localhost:18888 epark@147.46.94.186 &
+}
+
+update_terminal_cwd() {
+    # Identify the directory using a "file:" scheme URL,
+    # including the host name to disambiguate local vs.
+    # remote connections. Percent-escape spaces.
+    local SEARCH=' '
+    local REPLACE='%20'
+    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+    printf '\e]7;%s\a' "$PWD_URL"
+}
+
 # sed -i '' 's/foo/bar/' file
+# mkvirtualenv myenv --system-site-packages

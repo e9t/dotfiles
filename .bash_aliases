@@ -32,7 +32,6 @@ alias pyserv='python -m SimpleHTTPServer'
 alias filezilla='open /Applications/FileZilla.app/'
 alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
-#alias ipython='ipython -i -c '"'"'import sys; sys.path.append("/usr/local/lib/python2.7/site-packages")'"'"''
 alias python='hilite time python'
 alias python3='time python3'
 alias gae='dev_appserver.py --port=8192 .'
@@ -67,6 +66,12 @@ alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
 alias rmed='find . -type d -empty -delete'
 alias spark='/Users/e9t/dev/pkgs/java/spark-1.2.1/bin/pyspark'
 # rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
+alias tsvcut="csvcut -t"
+alias ipynote='ipython notebook --notebook-dir="~/dev"'
+alias rscp="rsync --partial --progress --rsh=ssh"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias sourceb="source ~/.bashrc"
+
 
 # Export variables
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
@@ -113,3 +118,18 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # [autoenv](https://github.com/kennethreitz/autoenv)
 source /usr/local/opt/autoenv/activate.sh
+
+# julia
+export PATH="$PATH:/Applications/Julia-0.3.11.app/Contents/Resources/julia/bin"
+
+# selenium
+export PATH="$PATH:$HOME/bin"
+
+# numba
+export LLVM_CONFIG="/usr/local/Cellar/llvm/3.6.2/bin/llvm-config"
+
+# torch
+export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
