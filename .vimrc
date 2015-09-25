@@ -175,6 +175,9 @@ set wrap "Wrap lines
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
+" [Search for selected text](http://vim.wikia.com/wiki/Search_for_visually_selected_text)
+vnoremap // y/<C-R>"<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 7. Moving around, tabs, windows and buffers
