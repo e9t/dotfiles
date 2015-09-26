@@ -24,3 +24,6 @@
 [submodule ".vim/bundle/vim-syntax-markdown"]
 	path = .vim/bundle/vim-syntax-markdown
 	url = https://github.com/drmingdrmer/vim-syntax-markdown.git
+[submodule ".vim/bundle/colorschemes"]
+	path = .vim/bundle/colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
