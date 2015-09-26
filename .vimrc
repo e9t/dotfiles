@@ -115,19 +115,18 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme solarized
+    colorscheme molokai
 catch
 endtry
 
 set background=dark
 
 " Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
+"http://stackoverflow.com/q/4229658/1054939
+"set guioptions-=T
+"set guioptions-=e
+set t_Co=256
+"set guitablabel=%M\ %t
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
