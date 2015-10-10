@@ -68,9 +68,14 @@ alias spark='/Users/e9t/dev/pkgs/java/spark-1.2.1/bin/pyspark'
 # rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
 alias tsvcut="csvcut -t"
 alias ipynote='ipython notebook --notebook-dir="~/dev"'
-alias rscp="rsync --partial --progress --rsh=ssh"
+# for a few big files
+alias rscpb="rsync --partial --progress --rsh=ssh"
+# for many small files
+alias rscp="rsync --progress --ignore-existing --rsh=ssh"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias sourceb="source ~/.bashrc"
+alias bayes="cd ~/Dropbox/references/books/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers; ipython notebook"
+alias e2u="iconv -f euckr -t utf8"
 
 
 # Export variables
