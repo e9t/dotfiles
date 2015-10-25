@@ -76,6 +76,7 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias sourceb="source ~/.bashrc"
 alias bayes="cd ~/Dropbox/references/books/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers; ipython notebook"
 alias e2u="iconv -f euckr -t utf8"
+alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 
 
 # Export variables
