@@ -115,7 +115,7 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme molokai
+    colorscheme desert256
 catch
 endtry
 
@@ -152,6 +152,7 @@ set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
+set nosmartindent
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -162,7 +163,6 @@ set lbr
 set tw=500
 
 set ai "Auto indent
-set si "Smart indent
 set wrap "Wrap lines
 
 
@@ -275,6 +275,12 @@ autocmd BufWrite *.markdown :call DeleteTrailingWS()
 autocmd BufWrite *.md :call DeleteTrailingWS()
 autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.py :call DeleteTrailingWS()
+func! ReplaceQuotes()
+  exe "normal mz"
+  %s/[“”]/"/ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.markdown :call ReplaceQuotes()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
