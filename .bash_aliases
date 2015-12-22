@@ -25,7 +25,7 @@ alias tl='tree -L 2'
 alias pop='ssh lucypark@popong.com -t tmux'
 alias dada='ssh epark@147.46.94.182 -t tmux'
 alias daca='ssh epark@147.46.94.52 -t tmux'
-alias merci='ssh epark@147.46.94.186 -t tmux'
+alias merci='ssh epark@147.46.94.186 -t -- /bin/sh -c "tmux has-session && exec tmux attach || exec tmux"'
 alias dmweb="ssh epark@dm.snu.ac.kr -t tmux"
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer'
@@ -79,9 +79,12 @@ alias e2u="iconv -f euckr -t utf8"
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 
 
-# Export variables
+# [Export variables](http://superuser.com/a/731099/137947)
 export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+setjdk() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+}
 PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
 PATH=$PATH:/usr/texbin                                      # For TeX
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
