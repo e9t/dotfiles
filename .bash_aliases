@@ -23,9 +23,9 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 alias rm='rm -i'
 alias tl='tree -L 2'
 alias pop='ssh lucypark@popong.com -t tmux'
-alias dada='ssh epark@147.46.94.182 -t tmux'
-alias daca='ssh epark@147.46.94.52 -t tmux'
-alias merci='ssh epark@147.46.94.186 -t -- /bin/sh -c "tmux has-session && exec tmux attach || exec tmux"'
+alias dada='ssh epark@dada -t tmux'
+alias daca='ssh epark@daca -t tmux'
+alias merci='ssh epark@merci -t -- /bin/sh -c "tmux has-session && exec tmux attach || exec tmux"'
 alias dmweb="ssh epark@dm.snu.ac.kr -t tmux"
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer'
@@ -77,6 +77,7 @@ alias sourceb="source ~/.bashrc"
 alias bayes="cd ~/Dropbox/references/books/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers; ipython notebook"
 alias e2u="iconv -f euckr -t utf8"
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
+alias nw="vi /Users/e9t/dev/sites/lucypark.kr/source/_docs/others/numberworks.markdown"
 
 
 # [Export variables](http://superuser.com/a/731099/137947)
@@ -102,7 +103,7 @@ export RBENV_ROOT=/usr/local/opt/rbenv
 
 # Timing
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
-export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
+export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
 # z
 . /Users/e9t/bin/z/z.sh
@@ -142,3 +143,13 @@ export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-d
 export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
 export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
 export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+
+# spark
+export SPARK_HOME="$HOME/dev/pkgs/java/spark-1.2.1"
+
+# aws
+export EC2_HOME="/usr/local/ec2/ec2-api-tools-1.7.5.1"
+export PATH="$PATH:$EC2_HOME/bin"
+if [ -f  ~/.bash_aws ]; then
+    . ~/.bash_aws
+fi

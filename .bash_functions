@@ -159,7 +159,7 @@ mmd2html() {
 
 ipyremote() {
     pkill -f "ssh -N -n -X -L localhost:18888"
-    ssh -N -n -X -L localhost:18888:localhost:18888 epark@147.46.94.186 &
+    ssh -N -n -X -L localhost:18888:localhost:18888 epark@merci &
 }
 
 update_terminal_cwd() {
@@ -170,6 +170,12 @@ update_terminal_cwd() {
     local REPLACE='%20'
     local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
     printf '\e]7;%s\a' "$PWD_URL"
+}
+
+gisto() {
+    # TODO: if github, bitbucket
+    gistid=`git remote -v | cut -c28-47 | head -n 1`
+    chrome "http://gist.github.com/e9t/$gistid"
 }
 
 # sed -i '' 's/foo/bar/' file
