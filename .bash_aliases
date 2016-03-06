@@ -22,10 +22,10 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 # Make the `rm` command as for confirmation
 alias rm='rm -i'
 alias tl='tree -L 2'
-alias pop='ssh lucypark@popong.com -t tmux'
+alias pop='ssh lucypark@115.68.110.88'
 alias dada='ssh epark@dada -t tmux'
 alias daca='ssh epark@daca -t tmux'
-alias merci='ssh epark@merci -t -- /bin/sh -c "tmux has-session && exec tmux attach || exec tmux"'
+alias merci='ssh epark@merci -t -- /bin/sh -c "tmux has-session && exec tmux attach"'
 alias dmweb="ssh epark@dm.snu.ac.kr -t tmux"
 alias chrome='open -a Google\ Chrome'
 alias pyserv='python -m SimpleHTTPServer'
@@ -150,6 +150,7 @@ export SPARK_HOME="$HOME/dev/pkgs/java/spark-1.2.1"
 # aws
 export EC2_HOME="/usr/local/ec2/ec2-api-tools-1.7.5.1"
 export PATH="$PATH:$EC2_HOME/bin"
+export EC2_URL="https://ec2.ap-northeast-2.amazonaws.com"
 if [ -f  ~/.bash_aws ]; then
     . ~/.bash_aws
 fi
