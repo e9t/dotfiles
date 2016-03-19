@@ -151,6 +151,7 @@ export SPARK_HOME="$HOME/dev/pkgs/java/spark-1.2.1"
 export EC2_HOME="/usr/local/ec2/ec2-api-tools-1.7.5.1"
 export PATH="$PATH:$EC2_HOME/bin"
 export EC2_URL="https://ec2.ap-northeast-2.amazonaws.com"
+
 if [ -f  ~/.bash_aws ]; then
-    . ~/.bash_aws
+    . ~/.bash_nw
 fi
