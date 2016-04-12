@@ -275,6 +275,7 @@ autocmd BufWrite *.markdown :call DeleteTrailingWS()
 autocmd BufWrite *.md :call DeleteTrailingWS()
 autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.less :call DeleteTrailingWS()
 func! ReplaceQuotes()
   exe "normal mz"
   %s/[“”]/"/ge
