@@ -7,9 +7,9 @@ alias l='ls -CF'
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagacedx
 pgb() {
-    git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+    git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
 }
-export PS1='\n\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w \[\033[33m\]($(pgb))\[\033[00m\]\$ '
+export PS1='\n\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
