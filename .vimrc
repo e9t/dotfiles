@@ -403,6 +403,8 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+command! Chrome execute ':silent !open http://localhost:4000/docs/%:p:h:t/%:r.html -a Google\ Chrome' | execute ':redraw!'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 14. Customized (Overrrides current file settings)
