@@ -83,7 +83,6 @@ alias bayes="cd ~/Dropbox/references/books/Probabilistic-Programming-and-Bayesia
 alias e2u="iconv -f euckr -t utf8"
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias trw="tmux rename-window"
-alias nw="vi /Users/e9t/dev/sites/lucypark.kr/source/_docs/others/numberworks.markdown"
 
 
 # [Export variables](http://superuser.com/a/731099/137947)
@@ -98,14 +97,14 @@ PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
 PATH=/usr/local/sbin:$PATH                                  # For Homebrew
 
 # SCM Breeze
-[ -s "/Users/e9t/.scm_breeze/scm_breeze.sh" ] && source "/Users/e9t/.scm_breeze/scm_breeze.sh"
+[ -s "/Users/e9t/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export RBENV_ROOT=/usr/local/opt/rbenv
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# export RBENV_ROOT=/usr/local/opt/rbenv
 
 # Timing
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
