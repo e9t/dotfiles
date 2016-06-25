@@ -14,10 +14,6 @@
 	path = .scm_breeze
 	url = https://github.com/e9t/scm_breeze.git
 
-[submodule "bin/z"]
-	path = bin/z
-	url = https://github.com/rupa/z.git
-
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git

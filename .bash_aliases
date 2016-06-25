@@ -111,9 +111,6 @@ export RBENV_ROOT=/usr/local/opt/rbenv
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
-# z
-. /Users/e9t/bin/z/z.sh
-
 # fasd
 alias s='fasd -si' # show / search / select
 alias v='fasd -e vim -b current -i' # open file in current folder
