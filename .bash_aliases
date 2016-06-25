@@ -40,7 +40,8 @@ alias python='hilite time python'
 alias python3='time python3'
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
-alias gist='git clone git@gist.github.com:'
+alias gistc='git clone git@gist.github.com:'
+alias gistup="gistup --private --"
 alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
 alias start_mongo='mongod --fork'
 alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
@@ -60,7 +61,7 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias f="open ."
-alias gistup="gistup --private --"
+alias skim="open -a Skim"
 alias venv="source venv/bin/activate"
 alias agi="ag --ignore-dir"
 alias ports="sudo netstat -plnt"
@@ -69,9 +70,9 @@ alias duhs='du -hs * | gsort -h'
 alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
 alias rmed='find . -type d -empty -delete'
 alias spark='/Users/e9t/dev/pkgs/java/spark-1.2.1/bin/pyspark'
-# rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
 alias tsvcut="csvcut -t"
 alias ipynote='ipython notebook --notebook-dir="~/dev"'
+# rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
 # for a few big files
 alias rscpb="rsync --partial --progress --rsh=ssh"
 # for many small files
@@ -81,6 +82,7 @@ alias sourceb="source ~/.bashrc"
 alias bayes="cd ~/Dropbox/references/books/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers; ipython notebook"
 alias e2u="iconv -f euckr -t utf8"
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
+alias trw="tmux rename-window"
 alias nw="vi /Users/e9t/dev/sites/lucypark.kr/source/_docs/others/numberworks.markdown"
 
 
@@ -111,6 +113,13 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
 # z
 . /Users/e9t/bin/z/z.sh
+
+# fasd
+alias s='fasd -si' # show / search / select
+alias v='fasd -e vim -b current -i' # open file in current folder
+alias zz='fasd_cd -d -i' # cd with interactive selection
+eval "$(fasd --init auto)"
+. ~/.fasdrc
 
 # torch
 export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
