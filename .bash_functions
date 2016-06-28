@@ -104,32 +104,6 @@ diary() {
     vi $fname
 }
 
-meeting() {
-    [[ -n "$1" ]] || { echo "Usage: meeting [title]"; return; }
-
-    dir=$MEETING_DIR
-    strip=${1//-/}
-    merge=${strip// /-}
-    clean=${merge//[^a-zA-Z0-9\-]/}
-    lower="$(echo $clean | tr '[:upper:]' '[:lower:]')"
-    short="${lower:0:30}"
-    final=${short//-./.}
-    fname=$dir/$(date "+%Y-%m-%d")-$final.md
-    echo $fname
-
-    temp[0]="---"
-    temp[1]="layout: meeting"
-    temp[2]="title: \"$1\""
-    temp[3]="date: $(date '+%Y-%m-%d %H:%M')"
-    temp[4]="comments: false"
-    temp[5]="categories: []"
-    temp[6]="original: null"
-    temp[7]="---"
-
-    printf "%s\n" "${temp[@]}" > $fname
-    vi $fname
-}
-
 # Compile TeX and open pdf
 ctex() {
     [[ -n "$1" ]] || { echo "Usage: ctex [somefile].tex"; return; }
