@@ -60,7 +60,6 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-alias f="open ."
 alias skim="open -a Skim"
 alias venv="source venv/bin/activate"
 alias agi="ag --ignore-dir"
@@ -116,6 +115,7 @@ alias v='fasd -e vim -b current -i' # open file in current folder
 alias zz='fasd_cd -d -i' # cd with interactive selection
 eval "$(fasd --init auto)"
 . ~/.fasdrc
+alias f="open ." # overwrite f
 
 # torch
 export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist

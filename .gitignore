@@ -39,3 +39,6 @@ ctrlp
 fontconfig
 pip.log
 .VimballRecord
+
+# others
+.bash_constants

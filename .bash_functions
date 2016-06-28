@@ -144,9 +144,23 @@ remark() {
     cp -r ~/skel/remark/* .
 }
 
-research() {
+# research notes
+re() {
     dir=$RESEARCH_DIR
     fname=$dir/$(date "+%Y-%m-%d").md
+
+    if [ ! -e "$fname" ]
+    then
+        temp[0]="---"
+        temp[1]="layout: docs"
+        temp[2]="title: \"$(date '+%Y-%m-%d')\""
+        temp[3]="date: $(date '+%Y-%m-%d %H:%M')"
+        temp[4]="comments: false"
+        temp[5]="categories: []"
+        temp[7]="---"
+        printf "%s\n" "${temp[@]}" > $fname
+    fi
+
     echo $fname
     vi $fname
 }
