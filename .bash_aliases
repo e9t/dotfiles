@@ -111,7 +111,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
 # fasd
 alias s='fasd -si' # show / search / select
-alias v='fasd -e vim -b current -i' # open file in current folder
+alias v='fasd -e vim -b current' # open file in current folder
+alias vv='fasd -e vim -b current -i' # open file in current folder
 alias zz='fasd_cd -d -i' # cd with interactive selection
 eval "$(fasd --init auto)"
 . ~/.fasdrc
