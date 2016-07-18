@@ -91,9 +91,8 @@ setjdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v $1)
 }
 PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
-PATH=$PATH:/usr/texbin                                      # For TeX
-PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin     # For TeX
-PATH=/usr/local/sbin:$PATH                                  # For Homebrew
+PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH            # For Homebrew
 
 # SCM Breeze
 [ -s "/Users/e9t/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
@@ -132,12 +131,13 @@ export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
-export WORKON_HOME=~/envs
-mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+# export WORKON_HOME=~/envs
+# mkdir -p $WORKON_HOME
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # [autoenv](https://github.com/kennethreitz/autoenv)
-source /usr/local/opt/autoenv/activate.sh
+source `which activate.sh`
 
 # julia
 export PATH="$PATH:/Applications/Julia-0.3.11.app/Contents/Resources/julia/bin"
