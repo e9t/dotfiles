@@ -109,10 +109,12 @@ PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
 # fasd
-alias s='fasd -si' # show / search / select
-alias v='fasd -e vim -b current' # open file in current folder
-alias vv='fasd -e vim -b current -i' # open file in current folder
-alias zz='fasd_cd -d -i' # cd with interactive selection
+alias s='fasd -si'                      # show / search / select
+alias c='fasd_cd -b current'            # cd in current folder
+alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
+alias v='fasd -e vim -b current'        # open file in current folder
+alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
+alias zz='fasd_cd -d -i'                # global cd (interactive)
 eval "$(fasd --init auto)"
 . ~/.fasdrc
 alias f="open ." # overwrite f
