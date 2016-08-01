@@ -1,3 +1,6 @@
+# iterm2
+. ~/.iterm2_shell_integration.bash
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -25,10 +28,12 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 # Make the `rm` command as for confirmation
 alias rm='rm -i'
 alias tl='tree -L 2'
+alias vi='/usr/bin/vim'
 alias pop='ssh lucypark@115.68.110.88'
 alias dada='ssh epark@dada -t tmux'
 alias daca='ssh epark@daca -t tmux'
 alias merci='autossh -M 10024 epark@merci -t "tmux attach"'
+alias pam='autossh -M 10025 e9t@pam -t "tmux attach"'
 alias dmweb="ssh epark@dm.snu.ac.kr -t tmux"
 alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
@@ -51,7 +56,7 @@ alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 alias gw='open http://localhost:1234/?o=age'
 alias excel='reattach-to-user-namespace open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
-alias subl='reattach-to-user-namespace subl'
+alias subl='reattach-to-user-namespace open -a /Applications/Sublime\ Text.app'
 alias open='reattach-to-user-namespace open'
 alias gitk='reattach-to-user-namespace gitk'
 alias terminal-notifier='reattach-to-user-namespace terminal-notifier'
@@ -112,8 +117,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 alias s='fasd -si'                      # show / search / select
 alias c='fasd_cd -b current'            # cd in current folder
 alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
-alias v='fasd -e vim -b current'        # open file in current folder
-alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
+alias v='fasd -e vi -b current'        # open file in current folder
+alias vv='fasd -e vi -b current -i'    # open file in current folder (interactive)
 alias zz='fasd_cd -d -i'                # global cd (interactive)
 eval "$(fasd --init auto)"
 . ~/.fasdrc
