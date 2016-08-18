@@ -172,3 +172,7 @@ export EC2_URL="https://ec2.ap-northeast-2.amazonaws.com"
 if [ -f  ~/.bash_aws ]; then
     . ~/.bash_nw
 fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
