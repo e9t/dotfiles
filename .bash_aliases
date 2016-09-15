@@ -1,5 +1,5 @@
 # iterm2
-. ~/.iterm2_shell_integration.bash
+# . ~/.iterm2_shell_integration.bash
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -73,7 +73,7 @@ alias duh='du -d 0 -h'
 alias duhs='du -hs * | gsort -h'
 alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
 alias rmed='find . -type d -empty -delete'
-alias spark='/Users/e9t/dev/pkgs/java/spark-1.2.1/bin/pyspark'
+alias spark='$HOME/dev/pkgs/java/spark-1.2.1/bin/pyspark'
 alias tsvcut="csvcut -t"
 alias ipynote='ipython notebook --notebook-dir="~/dev"'
 # rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
@@ -100,7 +100,7 @@ PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH            # For Homebrew
 
 # SCM Breeze
-[ -s "/Users/e9t/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # RVM
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -125,11 +125,11 @@ eval "$(fasd --init auto)"
 alias f="open ." # overwrite f
 
 # torch
-export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
 
-export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
 
 # jython
 export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
@@ -144,7 +144,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # source /usr/local/bin/virtualenvwrapper.sh
 
 # [autoenv](https://github.com/kennethreitz/autoenv)
-source `which activate.sh`
+# source `which activate.sh`
 
 # julia
 export PATH="$PATH:/Applications/Julia-0.3.11.app/Contents/Resources/julia/bin"
@@ -156,10 +156,10 @@ export PATH="$PATH:$HOME/bin"
 export LLVM_CONFIG="/usr/local/Cellar/llvm/3.6.2/bin/llvm-config"
 
 # torch
-export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
-export PATH=/Users/e9t/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=/Users/e9t/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
 
 # spark
 export SPARK_HOME="$HOME/dev/pkgs/java/spark-1.2.1"
