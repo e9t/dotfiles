@@ -113,26 +113,21 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable 
-
-try
-    colorscheme desert256
-catch
-endtry
-
 set background=dark
 
 " Set extra options when running in GUI mode
-"http://stackoverflow.com/q/4229658/1054939
+" Comes out weird for colorschemes though
+" http://stackoverflow.com/q/4229658/1054939
 "set guioptions-=T
 "set guioptions-=e
-set t_Co=256
+"set t_Co=256
 "set guitablabel=%M\ %t
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac
+" set ffs=unix,dos,mac
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,6 +430,9 @@ set nocompatible
 " For pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
+" colorscheme should come after pathogen
+colorscheme vibrantink
 
 " For lorem ipsum
 let lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis posuere risus, porta facilisis felis. Aliquam erat volutpat. Aenean elit elit, bibendum et leo sit amet, dapibus porttitor dui. Integer mollis hendrerit varius. Suspendisse ullamcorper justo magna, nec efficitur dolor blandit nec. Sed tincidunt lorem at enim placerat, in feugiat risus aliquet. Quisque ultrices nisi vel tortor auctor imperdiet. Nam non sem dignissim, pretium lectus non, tristique velit. Duis scelerisque augue non dui molestie interdum."
