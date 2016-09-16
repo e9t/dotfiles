@@ -34,49 +34,52 @@ alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias rm='rm -i'
 alias tl='tree -L 2'
+alias open='/usr/bin/open'
 alias vi='/usr/local/bin/vim'
+alias duh='du -d 0 -h'
+alias duhs='du -hs * | gsort -h'
 alias pyserv='python -m SimpleHTTPServer'
 alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
-alias python='hilite time python'
+#alias python='hilite time python'
 alias python3='time python3'
+alias agi="ag --ignore-dir"
+alias ports="lsof -Pn -i4 | grep LISTEN"
+alias rmed='find . -type d -empty -delete'
+alias tsvcut="csvcut -t"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias sourceb="source ~/.bashrc"
+alias e2u="iconv -f euckr -t utf8"
+
+# rsync -e ssh -avz some/dir/. me@remote:dir/. # http://sr128.org/blog/?p=90
+# for a few big files
+alias rscpb="rsync --partial --progress --rsh=ssh"
+# for many small files
+alias rscp="rsync --progress --ignore-existing --rsh=ssh"
+
+# gae
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
+
+# github/gist
 alias gistc='git clone git@gist.github.com:'
 alias gistup="gistup --private --"
-alias ld3py='ln -s ~/dev/pkgs/d3py-0.2.3/d3py'
+
+# dbs
 alias start_mongo='mongod --fork'
 alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
 alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo 'stopped'; fi"
 alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
-alias agi="ag --ignore-dir"
-alias ports="lsof -Pn -i4 | grep LISTEN"
-alias duh='du -d 0 -h'
-alias duhs='du -hs * | gsort -h'
-alias mvn_sources='mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs'
-alias rmed='find . -type d -empty -delete'
-alias spark='$HOME/dev/pkgs/java/spark-1.2.1/bin/pyspark'
-alias tsvcut="csvcut -t"
-alias ipynote='ipython notebook --notebook-dir="~/dev"'
-# rsync -e ssh -avz some/dir/. epark@remote:dir/. # http://sr128.org/blog/?p=90
-# for a few big files
-alias rscpb="rsync --partial --progress --rsh=ssh"
-# for many small files
-alias rscp="rsync --progress --ignore-existing --rsh=ssh"
-alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
-alias sourceb="source ~/.bashrc"
-alias bayes="cd ~/Dropbox/references/books/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers; ipython notebook"
-alias e2u="iconv -f euckr -t utf8"
+
+# tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias trw="tmux rename-window"
 
 # Open apps
 alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
-alias skim="open -a Skim"
-alias subl='reattach-to-user-namespace open -a /Applications/Sublime\ Text.app'
 
 # Server aliases
 alias s_merci='autossh -M 10024 epark@merci -t "tmux attach"'
