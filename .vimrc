@@ -120,7 +120,7 @@ set background=dark
 " http://stackoverflow.com/q/4229658/1054939
 "set guioptions-=T
 "set guioptions-=e
-"set t_Co=256
+set t_Co=256
 "set guitablabel=%M\ %t
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -432,7 +432,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " colorscheme should come after pathogen
-colorscheme vibrantink
+colorscheme leo
 
 " For lorem ipsum
 let lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis posuere risus, porta facilisis felis. Aliquam erat volutpat. Aenean elit elit, bibendum et leo sit amet, dapibus porttitor dui. Integer mollis hendrerit varius. Suspendisse ullamcorper justo magna, nec efficitur dolor blandit nec. Sed tincidunt lorem at enim placerat, in feugiat risus aliquet. Quisque ultrices nisi vel tortor auctor imperdiet. Nam non sem dignissim, pretium lectus non, tristique velit. Duis scelerisque augue non dui molestie interdum."

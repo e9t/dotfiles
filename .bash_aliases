@@ -1,7 +1,7 @@
 # iterm2
 # . ~/.iterm2_shell_integration.bash
 
-# some more ls aliases
+# Some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -9,10 +9,14 @@ alias l='ls -CF'
 # Tell 'ls' to be colorful
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagacedx
+
+# Show git branch
 pgb() {
     git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
 }
 export PS1='\n\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
+# PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+# export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
@@ -22,23 +26,16 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 
-# Source 'Generic Colourizer' from brew
-# source "`brew --prefix`/etc/grc.bashrc" 
-
-# Make the `rm` command as for confirmation
+# Tons of misc aliases
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
 alias rm='rm -i'
 alias tl='tree -L 2'
-alias vi='/usr/bin/vim'
-alias pop='ssh lucypark@115.68.110.88'
-alias dada='ssh epark@dada -t tmux'
-alias daca='ssh epark@daca -t tmux'
-alias merci='autossh -M 10024 epark@merci -t "tmux attach"'
-alias pam='autossh -M 10025 e9t@pam -t "tmux attach"'
-alias dmweb="ssh epark@dm.snu.ac.kr -t tmux"
-alias chrome='open -a Google\ Chrome'
-alias safari='open -a Safari'
+alias vi='/usr/local/bin/vim'
 alias pyserv='python -m SimpleHTTPServer'
-alias filezilla='open /Applications/FileZilla.app/'
 alias profile='python -m cProfile'
 alias profilec='python -m cProfile --sort=cumulative'
 alias python='hilite time python'
@@ -54,19 +51,6 @@ alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo '
 alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
-alias gw='open http://localhost:1234/?o=age'
-alias excel='reattach-to-user-namespace open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
-alias subl='reattach-to-user-namespace open -a /Applications/Sublime\ Text.app'
-alias open='reattach-to-user-namespace open'
-alias gitk='reattach-to-user-namespace gitk'
-alias terminal-notifier='reattach-to-user-namespace terminal-notifier'
-alias ..='cd ..'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
-alias ..4='cd ../../../..'
-alias ..5='cd ../../../../..'
-alias skim="open -a Skim"
-alias venv="source venv/bin/activate"
 alias agi="ag --ignore-dir"
 alias ports="lsof -Pn -i4 | grep LISTEN"
 alias duh='du -d 0 -h'
@@ -88,30 +72,35 @@ alias e2u="iconv -f euckr -t utf8"
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias trw="tmux rename-window"
 
+# Open apps
+alias chrome='open -a Google\ Chrome'
+alias safari='open -a Safari'
+alias skim="open -a Skim"
+alias subl='reattach-to-user-namespace open -a /Applications/Sublime\ Text.app'
 
-# [Export variables](http://superuser.com/a/731099/137947)
-export JYTHON_HOME="/usr/local/Cellar/jython/2.5.2/libexec"
+# Server aliases
+alias s_merci='autossh -M 10024 epark@merci -t "tmux attach"'
+alias s_pam='autossh -M 10025 e9t@pamplona -t "tmux attach"'
+alias s_43="ssh nhn -t 43"
+alias s_43s="ssh nhn -t 43s"
+
+# Set paths
+# [Change Java versions](http://superuser.com/a/731099/137947)
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 setjdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v $1)
 }
-PATH=$PATH:$HOME/.rvm/bin                                   # For RVM scripting
+
+# MacTeX
 PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH            # For Homebrew
+export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
 
 # SCM Breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
-# RVM
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # export RBENV_ROOT=/usr/local/opt/rbenv
-
-# Timing
-PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
-export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE};"
 
 # fasd
 alias s='fasd -si'                      # show / search / select
@@ -124,19 +113,6 @@ eval "$(fasd --init auto)"
 . ~/.fasdrc
 alias f="open ." # overwrite f
 
-# torch
-export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
-
-export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
-
-# jython
-export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
-
-# heroku toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 # export WORKON_HOME=~/envs
@@ -146,33 +122,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # [autoenv](https://github.com/kennethreitz/autoenv)
 # source `which activate.sh`
 
-# julia
-export PATH="$PATH:/Applications/Julia-0.3.11.app/Contents/Resources/julia/bin"
-
-# selenium
-export PATH="$PATH:$HOME/bin"
-
-# numba
-export LLVM_CONFIG="/usr/local/Cellar/llvm/3.6.2/bin/llvm-config"
-
-# torch
-export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
-export PATH=$HOME/torch/install/bin:$PATH  # Added automatically by torch-dist
-export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
-
-# spark
-export SPARK_HOME="$HOME/dev/pkgs/java/spark-1.2.1"
-
-# aws
-export EC2_HOME="/usr/local/ec2/ec2-api-tools-1.7.5.1"
-export PATH="$PATH:$EC2_HOME/bin"
-export EC2_URL="https://ec2.ap-northeast-2.amazonaws.com"
-
-if [ -f  ~/.bash_aws ]; then
-    . ~/.bash_nw
-fi
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+# NOTE: The following line is VERY SLOW
+# . "$(brew --prefix nvm)/nvm.sh"
