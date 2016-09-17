@@ -82,8 +82,9 @@ alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
 
 # Server aliases
-alias s_merci='autossh -M 10024 epark@merci -t "tmux attach"'
-alias s_pam='autossh -M 10025 e9t@pamplona -t "tmux attach"'
+alias s_merci='autossh -M 10024 merci -t "tmux attach"'
+alias s_pam='autossh -M 10025 pamplona -t "tmux attach"'
+alias s_pop='autossh -M 10026 joker -t "tmux attach"'
 alias s_43="ssh nhn -t 43"
 alias s_43s="ssh nhn -t 43s"
 
