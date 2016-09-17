@@ -445,3 +445,6 @@ imap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 " [For ctrlp symlink nav](http://vi.stackexchange.com/a/2727/8217)
 let g:ctrlp_follow_symlinks=1
+
+" [*.md as markdown files](http://stackoverflow.com/a/23279293/1054939)
+autocmd BufNewFile,BufRead *.md set filetype=markdown
