@@ -448,3 +448,8 @@ let g:ctrlp_follow_symlinks=1
 
 " [*.md as markdown files](http://stackoverflow.com/a/23279293/1054939)
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" Open doc file in Chrome
+" http://vim.wikia.com/wiki/Preview_current_HTML_file
+" http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
+nnoremap <leader>c :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/Users/lucypark/dev/sites/lucypark.kr/source/_docs/??.html<CR>
