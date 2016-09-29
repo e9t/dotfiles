@@ -453,3 +453,6 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " http://vim.wikia.com/wiki/Preview_current_HTML_file
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 nnoremap <leader>c :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/Users/lucypark/dev/sites/lucypark.kr/source/_docs/??.html<CR>
+
+" Open any file in Sublime
+nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
