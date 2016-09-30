@@ -1,8 +1,5 @@
 #! /bin/bash
 
-
-. ~/.bash_constants
-
 # Unicode printing
 ucat() {
   [[ -n "$1" ]] || { echo "Usage: ucat [file]"; return; }

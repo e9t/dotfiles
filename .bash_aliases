@@ -1,6 +1,8 @@
 # iterm2
 # . ~/.iterm2_shell_integration.bash
 
+. ~/.bash_constants
+
 # Some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -44,6 +46,7 @@ alias profilec='python -m cProfile --sort=cumulative'
 #alias python='hilite time python'
 alias python3='time python3'
 alias agi="ag --ignore-dir"
+alias agg="ag -g"
 alias ports="lsof -Pn -i4 | grep LISTEN"
 alias rmed='find . -type d -empty -delete'
 alias tsvcut="csvcut -t"
@@ -52,10 +55,10 @@ alias sourceb="source ~/.bashrc"
 alias e2u="iconv -f euckr -t utf8"
 
 # rsync -e ssh -avz some/dir/. me@remote:dir/. # http://sr128.org/blog/?p=90
-# for a few big files
-alias rscpb="rsync --partial --progress --rsh=ssh"
 # for many small files
-alias rscp="rsync --progress --ignore-existing --rsh=ssh"
+alias rscp="rsync -r --ignore-existing --progress --rsh=ssh"
+# for a few big files
+alias rscpb="rsync -r --partial --progress --rsh=ssh"
 
 # gae
 alias gae='dev_appserver.py --port=8192 .'
@@ -75,11 +78,12 @@ alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 
 # tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
-alias trw="tmux rename-window"
+alias tmux_rw="tmux rename-window"
 
 # Open apps
 alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
+alias jnote='jupyter notebook --notebook-dir $HOME/dev'
 
 # Server aliases
 alias s_merci='autossh -M 10024 merci -t "tmux attach"'
@@ -87,6 +91,16 @@ alias s_pam='autossh -M 10025 pamplona -t "tmux attach"'
 alias s_pop='autossh -M 10026 joker -t "tmux attach"'
 alias s_43="ssh nhn -t 43"
 alias s_43s="ssh nhn -t 43s"
+alias s_mtcompare="ssh nhn -t mtcompare"
+
+# Others
+alias nw="vi $WIKI_DIR/careers/numberworks.markdown"
+alias pe="vi $WIKI_DIR/others/people.markdown"
+alias pa="vi $WIKI_DIR/projects/papago.markdown"
+alias tr="vi $WIKI_DIR/projects/xtr.markdown"
+alias na="vi $WIKI_DIR/careers/naver.markdown"
+
+
 
 # Set paths
 # [Change Java versions](http://superuser.com/a/731099/137947)
@@ -94,6 +108,10 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 setjdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v $1)
 }
+
+# Spark
+export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
+PATH=$PATH:$SPARK_HOME
 
 # MacTeX
 PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
