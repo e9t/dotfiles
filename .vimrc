@@ -412,6 +412,9 @@ imap <F4> <C-R>=lorem<CR>
 nmap <F5> i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
+" Toggle list
+nnoremap <F7> :set list!<CR>
+
 " Remove trailing whitespaces
 map <F8> :call DeleteTrailingWS() <CR>
 
@@ -478,7 +481,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
