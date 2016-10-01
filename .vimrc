@@ -398,8 +398,6 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-command! Chrome execute ':silent !open http://localhost:4000/docs/%:p:h:t/%:r.html -a Google\ Chrome' | execute ':redraw!'
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 14. Customized (Overrrides current file settings)
@@ -463,7 +461,7 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " Open doc file in Chrome
 " http://vim.wikia.com/wiki/Preview_current_HTML_file
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
-nnoremap <leader>c :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/Users/lucypark/dev/sites/lucypark.kr/source/_docs/??.html<CR>
+nnoremap <leader>b :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/Users/lucypark/dev/sites/lucypark.kr/source/_docs/??.html<CR>
 
 " Open any file in Sublime
 nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
