@@ -404,6 +404,23 @@ command! Chrome execute ':silent !open http://localhost:4000/docs/%:p:h:t/%:r.ht
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 14. Customized (Overrrides current file settings)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Function keys
+" For lorem ipsum
+let lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis posuere risus, porta facilisis felis. Aliquam erat volutpat. Aenean elit elit, bibendum et leo sit amet, dapibus porttitor dui. Integer mollis hendrerit varius. Suspendisse ullamcorper justo magna, nec efficitur dolor blandit nec. Sed tincidunt lorem at enim placerat, in feugiat risus aliquet. Quisque ultrices nisi vel tortor auctor imperdiet. Nam non sem dignissim, pretium lectus non, tristique velit. Duis scelerisque augue non dui molestie interdum."
+nmap <F4> i<C-R>=lorem<CR><Esc>
+imap <F4> <C-R>=lorem<CR>
+
+" [For timestamping](http://stackoverflow.com/a/58604/1054939)
+nmap <F5> i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
+imap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+
+" For compiling and running programs
+map <F8> :!g++ % && ./a.out <CR> 
+
+" [Source .vimrc file in pwd](http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/)
+set exrc
+set secure
+
 set foldcolumn=0
 
 " Sets line number
@@ -433,15 +450,6 @@ execute pathogen#infect()
 
 " colorscheme should come after pathogen
 colorscheme leo
-
-" For lorem ipsum
-let lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis posuere risus, porta facilisis felis. Aliquam erat volutpat. Aenean elit elit, bibendum et leo sit amet, dapibus porttitor dui. Integer mollis hendrerit varius. Suspendisse ullamcorper justo magna, nec efficitur dolor blandit nec. Sed tincidunt lorem at enim placerat, in feugiat risus aliquet. Quisque ultrices nisi vel tortor auctor imperdiet. Nam non sem dignissim, pretium lectus non, tristique velit. Duis scelerisque augue non dui molestie interdum."
-nmap <F4> i<C-R>=lorem<CR><Esc>
-imap <F4> <C-R>=lorem<CR>
-
-" [For timestamping](http://stackoverflow.com/a/58604/1054939)
-nmap <F5> i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
-imap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 " [For ctrlp symlink nav](http://vi.stackexchange.com/a/2727/8217)
 let g:ctrlp_follow_symlinks=1
