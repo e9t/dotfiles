@@ -471,3 +471,7 @@ nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
 " [Highlight tabs](http://stackoverflow.com/q/24232354/1054939)
 set listchars=tab:>-
 set list
+
+" [Nerdtree](https://github.com/scrooloose/nerdtree)
+map <C-t> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if only nerdtree is left
