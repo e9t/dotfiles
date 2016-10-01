@@ -490,3 +490,9 @@ let g:syntastic_check_on_wq = 0
 " let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+" [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1, 'python': 1 }
+" let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
+nnoremap <leader>t :let g:ycm_auto_trigger=0<CR>  " turn off YCM
+nnoremap <leader>y :let g:ycm_auto_trigger=1<CR>  " turn on YCM
