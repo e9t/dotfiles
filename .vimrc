@@ -112,15 +112,15 @@ set foldcolumn=1
 " 3. Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
-set background=dark
+" syntax enable
+" set background=dark
 
 " Set extra options when running in GUI mode
 " Comes out weird for colorschemes though
 " http://stackoverflow.com/q/4229658/1054939
 "set guioptions-=T
 "set guioptions-=e
-set t_Co=256
+" set t_Co=256
 "set guitablabel=%M\ %t
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -453,6 +453,11 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " colorscheme should come after pathogen
+syntax enable
+set t_Co=256
+" let g:solarized_termcolors=256
+set background=dark
+" colorscheme solarized
 colorscheme leo
 
 " [For ctrlp symlink nav](http://vi.stackexchange.com/a/2727/8217)
