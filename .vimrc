@@ -467,3 +467,7 @@ nnoremap <leader>c :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?
 
 " Open any file in Sublime
 nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
+
+" [Highlight tabs](http://stackoverflow.com/q/24232354/1054939)
+set listchars=tab:>-
+set list
