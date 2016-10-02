@@ -490,7 +490,8 @@ let g:syntastic_check_on_wq = 0
 " let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_python_flake8_post_args='--ignore=E501,E702'
+let g:syntastic_html_checkers=['']
+let g:syntastic_python_flake8_post_args='--ignore=E221,E501,E702'
 
 " [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1, 'python': 1 }
