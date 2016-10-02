@@ -6,7 +6,7 @@
 [alias]
     unstage = reset --soft HEAD^
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/vim
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
