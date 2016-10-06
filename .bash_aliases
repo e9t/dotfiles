@@ -3,6 +3,9 @@
 
 . ~/.bash_constants
 
+# [for crontab](http://askubuntu.com/a/55026/138835)
+export EDITOR="/usr/local/bin/vim"
+
 # Some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -111,7 +114,7 @@ setjdk() {
 
 # Spark
 export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
-PATH=$PATH:$SPARK_HOME
+PATH=$PATH:$SPARK_HOME/bin
 
 # MacTeX
 PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
@@ -128,8 +131,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias s='fasd -si'                      # show / search / select
 alias c='fasd_cd -b current'            # cd in current folder
 alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
-alias v='fasd -e vi -b current'        # open file in current folder
-alias vv='fasd -e vi -b current -i'    # open file in current folder (interactive)
+alias v='fasd -e vim -b current'        # open file in current folder
+alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
 alias zz='fasd_cd -d -i'                # global cd (interactive)
 eval "$(fasd --init auto)"
 . ~/.fasdrc
@@ -147,4 +150,4 @@ alias f="open ." # overwrite f
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # NOTE: The following line is VERY SLOW
-# . "$(brew --prefix nvm)/nvm.sh"
+alias sourcen='. "$(brew --prefix nvm)/nvm.sh"'
