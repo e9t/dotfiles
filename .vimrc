@@ -495,8 +495,7 @@ let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702'
 command! S execute ':SyntasticToggleMode'
 
 " [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1, 'python': 1 }
+let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
 " let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
 nnoremap <leader>t :let g:ycm_auto_trigger=0<CR>  " turn off YCM
 nnoremap <leader>y :let g:ycm_auto_trigger=1<CR>  " turn on YCM
-
