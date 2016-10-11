@@ -42,3 +42,4 @@ pip.log
 
 # others
 .bash_constants
+*.pyc
