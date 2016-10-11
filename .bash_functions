@@ -157,10 +157,15 @@ update_terminal_cwd() {
     printf '\e]7;%s\a' "$PWD_URL"
 }
 
-gisto() {
-    # TODO: if github, bitbucket
-    gistid=`git remote -v | cut -c28-47 | head -n 1`
-    chrome "http://gist.github.com/e9t/$gistid"
+gp() {
+    url=`git remote -v | head -n 1 | cut -f 2 | cut -d " " -f 1`
+    echo $url
+    if [[ $url == git* ]]
+    then
+        chrome `echo $url | sed -e 's/:/\//g;s/git@/http:\/\//'`
+    else
+        chrome $url
+    fi
 }
 
 # sed -i '' 's/foo/bar/' file
