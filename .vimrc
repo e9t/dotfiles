@@ -473,6 +473,8 @@ nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
 " [Highlight tabs](http://stackoverflow.com/q/24232354/1054939)
 set listchars=tab:>-
 set list
+highlight Whitespace ctermfg=DarkBlue
+autocmd bufenter * match Whitespace /\s/
 
 " [Nerdtree](https://github.com/scrooloose/nerdtree)
 map <C-t> :NERDTreeToggle<CR>
