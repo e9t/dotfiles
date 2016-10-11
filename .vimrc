@@ -404,7 +404,7 @@ nmap <leader>t i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 imap <leader>t <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 " Toggle list
-nnoremap <F7> :set list!<CR>
+nnoremap <leader>l :set list!<CR>
 
 " Remove trailing whitespaces
 map <F8> :call DeleteTrailingWS() <CR>
