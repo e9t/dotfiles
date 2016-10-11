@@ -201,23 +201,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Close the current buffer
-map <leader>bd :Bclose<cr>
-
-" Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
-
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
@@ -417,8 +400,8 @@ nmap <F4> i<C-R>=lorem<CR><Esc>
 imap <F4> <C-R>=lorem<CR>
 
 " [For timestamping](http://stackoverflow.com/a/58604/1054939)
-nmap <F5> i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
-imap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+nmap <leader>t i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
+imap <leader>t <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 " Toggle list
 nnoremap <F7> :set list!<CR>
@@ -493,12 +476,12 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
-let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702'
+let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702,W391'
 command! S execute ':SyntasticToggleMode'
 
 " [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
 let g:ycm_confirm_extra_conf = 0
 " let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
-nnoremap <leader>t :let g:ycm_auto_trigger=0<CR>  " turn off YCM
-nnoremap <leader>y :let g:ycm_auto_trigger=1<CR>  " turn on YCM
+nnoremap <leader>yt :let g:ycm_auto_trigger=0<CR>  " turn off YCM
+nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
