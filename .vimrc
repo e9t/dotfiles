@@ -411,6 +411,7 @@ map <F8> :call DeleteTrailingWS() <CR>
 
 " For compiling and running programs
 map <F9> :!g++ % && ./a.out <CR>
+map <leader>0 :!gcc % && ./a.out <CR>
 
 " [Source .vimrc file in pwd](http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/)
 set exrc
@@ -485,3 +486,6 @@ let g:ycm_confirm_extra_conf = 0
 " let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
 nnoremap <leader>yt :let g:ycm_auto_trigger=0<CR>  " turn off YCM
 nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
+
+" [vim-markdown](https://github.com/plasticboy/vim-markdown)
+let g:vim_markdown_folding_disabled = 1
