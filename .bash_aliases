@@ -56,6 +56,7 @@ alias tsvcut="csvcut -t"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias sourceb="source ~/.bashrc"
 alias e2u="iconv -f euckr -t utf8"
+alias prettyjson="python3 -m json.tool"
 
 # rsync -e ssh -avz some/dir/. me@remote:dir/. # http://sr128.org/blog/?p=90
 # for many small files
@@ -82,8 +83,13 @@ alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 # tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias tmux_rw="tmux rename-window"
+alias ta="tmux attach"
+alias t="tmux"
 
 # Open apps
+alias pbcopy='reattach-to-user-namespace pbcopy'
+alias open='reattach-to-user-namespace open'
+alias skim='open -a Skim'
 alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
 alias jnote='jupyter notebook --notebook-dir $HOME/dev'
@@ -92,17 +98,18 @@ alias jnote='jupyter notebook --notebook-dir $HOME/dev'
 alias s_merci='autossh -M 10024 merci -t "tmux attach"'
 alias s_pam='autossh -M 10025 pamplona -t "tmux attach"'
 alias s_pop='autossh -M 10026 joker -t "tmux attach"'
+alias s_g21='autossh -M 10027 smtgpu21 -t "tmux attach || tmux"'
 alias s_43="ssh nhn -t 43"
 alias s_43s="ssh nhn -t 43s"
 alias s_mtcompare="ssh nhn -t mtcompare"
+alias s_mtcompares="ssh nhn -t mtcompares"
 
 # Others
 alias nw="vi $WIKI_DIR/careers/numberworks.markdown"
 alias pe="vi $WIKI_DIR/others/people.markdown"
 alias pa="vi $WIKI_DIR/projects/papago.markdown"
-alias tr="vi $WIKI_DIR/projects/xtr.markdown"
+alias tr="vi $WIKI_DIR/dm/mt.markdown"
 alias na="vi $WIKI_DIR/careers/naver.markdown"
-
 
 
 # Set paths
