@@ -486,6 +486,3 @@ let g:ycm_confirm_extra_conf = 0
 " let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
 nnoremap <leader>yt :let g:ycm_auto_trigger=0<CR>  " turn off YCM
 nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
-
-" [vim-markdown](https://github.com/plasticboy/vim-markdown)
-let g:vim_markdown_folding_disabled = 1
