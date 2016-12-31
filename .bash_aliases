@@ -57,6 +57,8 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias sourceb="source ~/.bashrc"
 alias e2u="iconv -f euckr -t utf8"
 alias prettyjson="python3 -m json.tool"
+alias bleulook="sed 's/[_a-zA-Z]* *= *//g; s/)//g; s/\//,/g; s/ (/,/g' | csvsort -r -c bleu | csvlook"
+alias bleubar="sed 's/[_a-zA-Z]* *= *//g; s/)//g' | csvsort -r -c bleu | csvcut -c engine,bleu | tail -n +2 | sed 's/,/ /' | bar_chart.py -Avr -m 100"
 
 # rsync -e ssh -avz some/dir/. me@remote:dir/. # http://sr128.org/blog/?p=90
 # for many small files
@@ -83,8 +85,7 @@ alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 # tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias tmux_rw="tmux rename-window"
-alias ta="tmux attach"
-alias t="tmux"
+alias ta="tmux attach || tmux"
 
 # Open apps
 alias pbcopy='reattach-to-user-namespace pbcopy'
@@ -158,3 +159,9 @@ alias f="open ." # overwrite f
 export NVM_DIR="$HOME/.nvm"
 # NOTE: The following line is VERY SLOW
 alias sourcen='. "$(brew --prefix nvm)/nvm.sh"'
+
+
+# bash history logging
+export HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
