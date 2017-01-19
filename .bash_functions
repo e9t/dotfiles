@@ -124,7 +124,7 @@ re() {
     then
         temp[0]="---"
         temp[1]="layout: docs"
-        temp[2]="title: \"$(date '+%Y-%m-%d')\""
+        temp[2]="title: \"$(date '+%Y-%m-%d (%a)')\""
         temp[3]="date: $(date '+%Y-%m-%d %H:%M')"
         temp[4]="comments: false"
         temp[5]="categories: []"
