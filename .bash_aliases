@@ -109,7 +109,7 @@ alias s_mtcompares="ssh nhn -t mtcompares"
 alias nw="vi $WIKI_DIR/careers/numberworks.markdown"
 alias pe="vi $WIKI_DIR/others/people.markdown"
 alias pa="vi $WIKI_DIR/projects/papago.markdown"
-alias tr="vi $WIKI_DIR/dm/mt.markdown"
+alias mt="vi $WIKI_DIR/dm/mt.markdown"
 alias na="vi $WIKI_DIR/careers/naver.markdown"
 
 
@@ -165,3 +165,7 @@ alias sourcen='. "$(brew --prefix nvm)/nvm.sh"'
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+
+# https://github.com/daleroberts/itermplot
+export MPLBACKEND="module://itermplot"
+export ITERMPLOT="rv"
