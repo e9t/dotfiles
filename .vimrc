@@ -119,10 +119,9 @@ set foldcolumn=1
 " colorscheme should come after pathogen
 syntax enable
 set t_Co=256
-" let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 set background=dark
-" colorscheme solarized
-colorscheme leo
+colorscheme solarized
 
 " Set extra options when running in GUI mode
 " Comes out weird for colorschemes though
