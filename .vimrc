@@ -119,9 +119,11 @@ set foldcolumn=1
 " colorscheme should come after pathogen
 syntax enable
 set t_Co=256
-let g:solarized_termcolors=256
+ let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+colorscheme leo
+set colorcolumn=80
+
 
 " Set extra options when running in GUI mode
 " Comes out weird for colorschemes though
@@ -401,6 +403,11 @@ imap <F4> <C-R>=lorem<CR>
 " [For timestamping](http://stackoverflow.com/a/58604/1054939)
 nmap <leader>t i<C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 imap <leader>t <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+nmap <leader>d i<C-R>=strftime("%Y-%m-%d")<CR><Esc>
+imap <leader>d <C-R>=strftime("%Y-%m-%d")<CR>
+
+" Input docs/dm
+imap <leader>m <C-R>="/docs/dm/"<CR>
 
 " Toggle list
 nnoremap <leader>l :set list!<CR>
@@ -448,7 +455,10 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " Open doc file in Chrome
 " http://vim.wikia.com/wiki/Preview_current_HTML_file
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
-nnoremap <leader>b :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/Users/lucypark/dev/sites/lucypark.kr/source/_docs/??.html<CR>
+nnoremap <leader>b :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/.*/_docs/??/<CR>
+
+" Open doc in Typora
+nnoremap <leader>c :!open -a "Typora" %:p<CR>
 
 " Open any file in Sublime
 nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
@@ -457,6 +467,7 @@ nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
 set listchars=tab:>-
 set list
 highlight Whitespace ctermfg=DarkBlue
+highlight ColorColumn ctermbg=DarkRed
 autocmd bufenter * match Whitespace /\s/
 
 " [Nerdtree](https://github.com/scrooloose/nerdtree)
