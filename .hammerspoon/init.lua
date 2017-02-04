@@ -1,7 +1,11 @@
 -- [hs.hotkey.bind](http://www.hammerspoon.org/docs/hs.hotkey.html#bind)
 
 local function keyCode(key)
-  return function() hs.eventtap.keyStroke({}, key) end
+  return function()
+      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
+      hs.timer.usleep(1000)
+      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
+  end
 end
 
 hs.hotkey.bind({"ctrl", "shift", "cmd"}, 'h', 'home', keyCode('home'), nil)
