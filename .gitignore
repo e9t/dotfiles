@@ -13,25 +13,31 @@
 .ssh/
 
 # apps & libs
-.dropbox/
-.filezilla/
-.Xauthority
-.z
-.ipython/
-.sunlight.key
-.lesshst
-.appcfg_cookies
-.irssi/
-.npm/
-.matplotlib/
-.virtualenvs/
-.gem/
-.rvm/
 .Rprofile
-.htoprc
+.Xauthority
+.appcfg_cookies
 .dbshell
+.dropbox/
+.fasd*
+.filezilla/
+.gem/
+.gistup.json
+.htoprc
+.ipython/
+.irssi/
+.lesshst
+.matplotlib/
 .mongorc.js
+.npm/
+.nvm/
+.odrive/
+.profile
 .qgis/
+.rbenv/
+.rvm/
+.sunlight.key
+.virtualenvs/
+.z
 
 # files in folders
 .netrwhist
@@ -42,4 +48,5 @@ pip.log
 
 # others
 .bash_constants
+*.padl
 *.pyc
