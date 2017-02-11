@@ -1,0 +1,41 @@
+# iterm2
+# . ~/.iterm2_shell_integration.bash
+
+alias open='/usr/bin/open'
+alias vi='/usr/local/bin/vim'
+
+# Open apps
+alias pbcopy='reattach-to-user-namespace pbcopy'
+alias open='reattach-to-user-namespace open'
+alias skim='open -a Skim'
+alias chrome='open -a Google\ Chrome'
+alias safari='open -a Safari'
+alias jnote='jupyter notebook --notebook-dir $HOME/dev'
+
+# Server aliases
+alias s_merci='autossh -M 10024 merci -t "tmux attach"'
+alias s_pam='autossh -M 10025 pamplona -t "tmux attach"'
+alias s_pop='autossh -M 10026 joker -t "tmux attach"'
+alias s_g21='autossh -M 10027 smtgpu21 -t "tmux attach || tmux"'
+alias s_43="ssh nhn -t 43"
+alias s_43s="ssh nhn -t 43s"
+alias s_mtcompare="ssh nhn -t mtcompare"
+alias s_mtcompares="ssh nhn -t mtcompares"
+
+# Others
+alias nw="vi $WIKI_DIR/careers/numberworks.markdown"
+alias pe="vi $WIKI_DIR/others/people.markdown"
+alias pa="vi $WIKI_DIR/projects/papago.markdown"
+alias mt="vi $WIKI_DIR/dm/mt.markdown"
+alias na="vi $WIKI_DIR/careers/naver.markdown"
+
+# Java
+# [Change Java versions](http://superuser.com/a/731099/137947)
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+setjdk() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+}
+
+# MacTeX
+PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
+export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
