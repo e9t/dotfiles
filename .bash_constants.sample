@@ -1,6 +1,6 @@
 #! /bin/bash
 
 # FILL ME
-
 DIARY_DIR=""
 RESEARCH_DIR=""
+WIKI_DIR=""
