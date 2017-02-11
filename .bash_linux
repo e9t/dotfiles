@@ -1,0 +1,16 @@
+export PS1="\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w \[\033[33m\]\[\033[00m\]\$ "
+
+# bash session timeout
+export TMOUT=0
+
+# cuda
+export PATH="/usr/local/cuda-8.0/bin${PATH:+:${PATH}}"
+export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+export CUDA_HOME="/usr/local/cuda"
+
+# gpu
+alias gpustats="while sleep 11; do gpustat -cpu; done"
+
+# spark
+export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"

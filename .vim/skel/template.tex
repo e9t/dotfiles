@@ -1,12 +1,21 @@
-\documentclass[]{article}
+\documentclass[twocolumn]{article}
+\usepackage{color}
+    \newcommand{\red}[1]{\color{red}{#1}} % Usage: {\red{some words}}
+\usepackage{kotex}
+\usepackage{geometry}
+    \geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
 
 \begin{document}
-
 \title{Title}
 \author{Author}
 \date{\today}
 \maketitle
 
+\begin{abstract}///\end{abstract}
+
+\section{Section Title}
 Content
 
+\bibliographystyle{plain} % {abbrv, acm, alpha, apalike, ieeetr, plain, siam}
+\bibliography{ref} % Usage: \cite{knuth1984texbook}
 \end{document}

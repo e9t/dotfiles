@@ -6,7 +6,7 @@
 [alias]
     unstage = reset --soft HEAD^
 [core]
-	editor = /usr/local/bin/vim
+	editor = vim
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

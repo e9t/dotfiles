@@ -21,8 +21,6 @@ pgb() {
 }
 export PS1='\n\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
 
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
 
 # ----------------------------------------------------------------------------
 # Aliases
@@ -60,9 +58,8 @@ alias tl='tree -L 2'
 alias bleulook="sed 's/[_a-zA-Z]* *= *//g; s/)//g; s/\//,/g; s/ (/,/g' | csvsort -r -c bleu | csvlook"
 alias bleubar="sed 's/[_a-zA-Z]* *= *//g; s/)//g' | csvsort -r -c bleu | csvcut -c engine,bleu | tail -n +2 | sed 's/,/ /' | bar_chart.py -Avr -m 100"
 
-# crontab
-# [to use vim](http://askubuntu.com/a/55026/138835)
-export EDITOR="/usr/local/bin/vim"
+# c
+export LD_LIBRARY_PATH="/usr/local/lib"
 
 # dbs
 alias start_mongo='mongod --fork'
@@ -82,6 +79,7 @@ alias zz='fasd_cd -d -i'                # global cd (interactive)
 eval "$(fasd --init auto)"
 . ~/.fasdrc
 alias f="open ." # overwrite f
+alias emem="sudo bash -c 'sync; echo 1 > /proc/sys/vm/drop_caches'"
 
 # gae
 alias gae='dev_appserver.py --port=8192 .'
@@ -130,6 +128,16 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # [autoenv](https://github.com/kennethreitz/autoenv)
 # source `which activate.sh`
+alias e="workon venv"
+# activate venv every time there is a file named .env in pwd
+if [ -f "$PWD/.env" ]; then
+    if [ -z "$VIRTUAL_ENV" ]; then workon venv; fi
+fi
+alias da="deactivate"
+
+# ----------------------------------------------------------------------------
+# Misc
+# ----------------------------------------------------------------------------
 
 # bash history logging
 export HISTCONTROL=ignoredups:erasedups

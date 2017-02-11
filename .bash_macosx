@@ -29,6 +29,10 @@ alias pa="vi $WIKI_DIR/projects/papago.markdown"
 alias mt="vi $WIKI_DIR/dm/mt.markdown"
 alias na="vi $WIKI_DIR/careers/naver.markdown"
 
+# crontab
+# [to use vim](http://askubuntu.com/a/55026/138835)
+export EDITOR="/usr/local/bin/vim"
+
 # Java
 # [Change Java versions](http://superuser.com/a/731099/137947)
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
@@ -39,3 +43,6 @@ setjdk() {
 # MacTeX
 PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
 export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
+#
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
