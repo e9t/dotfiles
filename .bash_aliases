@@ -149,8 +149,12 @@ fi
 
 # os specific
 if [ "$(uname)" == "Darwin" ]; then
-    . ~/.bash_macosx
+    if [ -f "$HOME/.bash_macosx" ]; then
+        . ~/.bash_macosx
+    fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    . ~/.bash_linux
+    if [ -f "$HOME/.bash_linux" ]; then
+        . ~/.bash_linux
+    fi
 # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
 fi
