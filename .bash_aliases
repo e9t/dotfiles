@@ -77,7 +77,9 @@ alias v='fasd -e vim -b current'        # open file in current folder
 alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
 alias zz='fasd_cd -d -i'                # global cd (interactive)
 eval "$(fasd --init auto)"
-. ~/.fasdrc
+if [ -f "$PWD/.fasdrc" ]; then
+    . $PWD/.fasdrc
+fi
 alias f="open ." # overwrite f
 alias emem="sudo bash -c 'sync; echo 1 > /proc/sys/vm/drop_caches'"
 
@@ -141,7 +143,7 @@ alias da="deactivate"
 
 # bash history logging
 
-if [ -f "$HOME/.logs" ]; then
+if [ -d "$HOME/.logs" ]; then
     export HISTCONTROL=ignoredups:erasedups
     shopt -s histappend
     export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
