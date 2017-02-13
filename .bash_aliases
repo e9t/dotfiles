@@ -140,9 +140,12 @@ alias da="deactivate"
 # ----------------------------------------------------------------------------
 
 # bash history logging
-export HISTCONTROL=ignoredups:erasedups
-shopt -s histappend
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+
+if [ -f "$HOME/.logs" ]; then
+    export HISTCONTROL=ignoredups:erasedups
+    shopt -s histappend
+    export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+fi
 
 # os specific
 if [ "$(uname)" == "Darwin" ]; then
