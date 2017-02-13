@@ -121,7 +121,9 @@ PATH=$PATH:$SPARK_HOME/bin
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if [ -x "$(command -v rbenv)" ]; then
+    eval "$(rbenv init -)"
+fi
 # export RBENV_ROOT=/usr/local/opt/rbenv
 
 # [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
