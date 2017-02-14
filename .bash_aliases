@@ -121,6 +121,11 @@ PATH=$PATH:$SPARK_HOME/bin
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
