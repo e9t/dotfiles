@@ -33,7 +33,6 @@
 .odrive/
 .profile
 .qgis/
-.rbenv/
 .rvm/
 .sunlight.key
 .virtualenvs/

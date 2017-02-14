@@ -43,3 +43,9 @@
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule ".rbenv"]
+	path = .rbenv
+	url = https://github.com/rbenv/rbenv.git
+[submodule ".pyenv"]
+	path = .pyenv
+	url = https://github.com/yyuu/pyenv.git
