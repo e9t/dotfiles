@@ -9,7 +9,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".scm_breeze"]
 	path = .scm_breeze
-	url = https://github.com/e9t/scm_breeze.git
+	url = https://github.com/scmbreeze/scm_breeze.git
 [submodule ".vim/bundle/vim-syntax-markdown"]
 	path = .vim/bundle/vim-syntax-markdown
 	url = https://github.com/drmingdrmer/vim-syntax-markdown.git
