@@ -496,3 +496,9 @@ let g:ycm_confirm_extra_conf = 0
 " let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
 nnoremap <leader>yt :let g:ycm_auto_trigger=0<CR>  " turn off YCM
 nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
+
+" [junegunn/vim-easy-align: A Vim alignment plugin](https://github.com/junegunn/vim-easy-align)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
