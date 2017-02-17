@@ -142,6 +142,10 @@ if [ -f "$PWD/.env" ]; then
 fi
 alias da="deactivate"
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
 # ----------------------------------------------------------------------------
 # Misc
 # ----------------------------------------------------------------------------
