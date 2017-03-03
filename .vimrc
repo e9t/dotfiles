@@ -471,7 +471,7 @@ highlight ColorColumn ctermbg=DarkRed
 autocmd bufenter * match Whitespace /\s/
 
 " [Nerdtree](https://github.com/scrooloose/nerdtree)
-map <C-t> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if only nerdtree is left
 let NERDTreeShowHidden=1  " show hidden files
 
