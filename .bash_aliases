@@ -17,9 +17,7 @@ export CLICOLOR=1
 export LSCOLORS="GxFxCxDxBxegedabagacedx"
 pgb() {
     # Show git branch
-    if [ "$(git rev-parse --is-inside-work-tree)" == "true" ]; then
-        git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
-    fi
+    git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
 }
 export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
 
@@ -39,6 +37,7 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 
+alias vi='vim'
 alias agi="ag --ignore-dir"
 alias duh='du -d 0 -h'
 alias duhs='du -hs * | gsort -h'
