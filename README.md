@@ -3,6 +3,12 @@
 My dotfiles for bash.
 Thanks to the myriad developers out there who opened up their codes!
 
+## Install
+
+    git clone --recursive https://github.com/e9t/dotfiles.git
+    mv dotfiles/* dotfiles/.* $HOME
+    rmdir dotfiles
+
 ## Features
 
 ### Bash
