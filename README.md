@@ -3,6 +3,18 @@
 My dotfiles for bash.
 Thanks to the myriad developers out there who opened up their codes!
 
+## Installation
+
+```
+# backup previous dotfiles
+mkdir -p ~/.dotfiles.backup
+mv ~/.[^.]* ~/.dotfiles.backup/
+
+# get new dotfiles
+git clone --recursive https://github.com/e9t/dotfiles.git
+mv dotfiles/* dotfiles/.[^.]* ~
+```
+
 ## Features
 
 ### Bash
