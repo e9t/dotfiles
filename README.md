@@ -3,11 +3,18 @@
 My dotfiles for bash.
 Thanks to the myriad developers out there who opened up their codes!
 
-## Install
 
-    git clone --recursive https://github.com/e9t/dotfiles.git
-    mv dotfiles/* dotfiles/.* $HOME
-    rmdir dotfiles
+## Installation
+
+```
+# backup previous dotfiles
+mkdir -p ~/.dotfiles.backup
+mv ~/.[^.]* ~/.dotfiles.backup/
+
+# get new dotfiles
+git clone --recursive https://github.com/e9t/dotfiles.git .dotfiles
+ln -s .dotfiles/* .dotfiles/.[^.]* ~
+```
 
 ## Features
 
