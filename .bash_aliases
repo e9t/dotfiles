@@ -126,6 +126,7 @@ eval "$(rbenv init -)"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
