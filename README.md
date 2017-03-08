@@ -15,9 +15,11 @@ mkdir -p ~/.dotfiles.backup
 mv ~/.[^.]* ~/.dotfiles.backup/
 
 # get new dotfiles
-git clone --recursive https://github.com/e9t/dotfiles.git .dotfiles
-ln -s .dotfiles/* .dotfiles/.[^.]* ~
+git clone https://github.com/e9t/dotfiles.git
+mv dotfiles/* dotfiles/.[^.]* ~
 rmdir dotfiles
+git submodule init
+git submodule update
 ```
 
 ## Features
