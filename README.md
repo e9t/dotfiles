@@ -3,6 +3,9 @@
 My dotfiles for bash.
 Thanks to the myriad developers out there who opened up their codes!
 
+## Requirements
+
+- Vim 7.3.598+ (due to YouCompleteMe)
 
 ## Installation
 
@@ -14,6 +17,7 @@ mv ~/.[^.]* ~/.dotfiles.backup/
 # get new dotfiles
 git clone --recursive https://github.com/e9t/dotfiles.git .dotfiles
 ln -s .dotfiles/* .dotfiles/.[^.]* ~
+rmdir dotfiles
 ```
 
 ## Features
