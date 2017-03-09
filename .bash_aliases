@@ -1,3 +1,7 @@
+# Change when necessary
+export HOME="$HOME"
+export PATH="$PATH:$HOME/bin"
+
 # Import constants
 if [ -f ~/.bash_constants ]; then
     . ~/.bash_constants
@@ -169,4 +173,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         . ~/.bash_linux
     fi
 # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+fi
+
+# local bash
+if [ -f "$HOME/.bash_local" ]; then
+    . ~/.bash_local
 fi
