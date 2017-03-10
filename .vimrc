@@ -108,8 +108,8 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Add a bit extra margin to the left
-set foldcolumn=1
+" Extra margin to the left
+set foldcolumn=0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -257,12 +257,14 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
+autocmd BufWrite *.c :call DeleteTrailingWS()
+autocmd BufWrite *.cpp :call DeleteTrailingWS()
 autocmd BufWrite *.css :call DeleteTrailingWS()
+autocmd BufWrite *.html :call DeleteTrailingWS()
+autocmd BufWrite *.less :call DeleteTrailingWS()
 autocmd BufWrite *.markdown :call DeleteTrailingWS()
 autocmd BufWrite *.md :call DeleteTrailingWS()
-autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.less :call DeleteTrailingWS()
 func! ReplaceQuotes()
   exe "normal mz"
   %s/[“”]/"/ge
@@ -422,8 +424,6 @@ map <leader>0 :!gcc % && ./a.out <CR>
 " [Source .vimrc file in pwd](http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/)
 set exrc
 set secure
-
-set foldcolumn=0
 
 " Sets line number
 set number
