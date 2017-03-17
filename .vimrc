@@ -266,6 +266,7 @@ endfunc
 autocmd BufWrite *.c :call DeleteTrailingWS()
 autocmd BufWrite *.cpp :call DeleteTrailingWS()
 autocmd BufWrite *.css :call DeleteTrailingWS()
+autocmd BufWrite *.h :call DeleteTrailingWS()
 autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.less :call DeleteTrailingWS()
 autocmd BufWrite *.markdown :call DeleteTrailingWS()
