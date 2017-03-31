@@ -512,3 +512,7 @@ nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" https://gist.github.com/staltz/6595113
+syn keyword TodoKeywords TODO
+highlight TodoKeywords cterm=bold term=bold ctermfg=Black ctermbg=Yellow
