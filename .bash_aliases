@@ -54,6 +54,7 @@ alias rscp="rsync -r --ignore-existing --progress --rsh=ssh"
 # for a few big files
 alias rscpb="rsync -r --partial --progress --rsh=ssh"
 alias tl='tree -L 2'
+alias wgetr="wget -r --no-parent"
 
 # ----------------------------------------------------------------------------
 # App specific
