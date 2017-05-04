@@ -10,9 +10,6 @@
 [submodule ".scm_breeze"]
 	path = .scm_breeze
 	url = https://github.com/scmbreeze/scm_breeze.git
-[submodule ".vim/bundle/vim-syntax-markdown"]
-	path = .vim/bundle/vim-syntax-markdown
-	url = https://github.com/drmingdrmer/vim-syntax-markdown.git
 [submodule ".vim/bundle/vim-better-whitespace"]
 	path = .vim/bundle/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
