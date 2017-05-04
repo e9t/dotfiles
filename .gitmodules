@@ -9,7 +9,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".scm_breeze"]
 	path = .scm_breeze
-	url = https://github.com/scmbreeze/scm_breeze.git
+	url = https://github.com/e9t/scm_breeze.git
 [submodule ".vim/bundle/vim-better-whitespace"]
 	path = .vim/bundle/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
