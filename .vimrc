@@ -517,9 +517,9 @@ nmap ga <Plug>(EasyAlign)
 syn keyword TodoKeywords TODO
 highlight TodoKeywords cterm=bold term=bold ctermfg=Black ctermbg=Yellow
 
-" Unfuck my screen
-nnoremap U :syntax on<cr>:syntax sync fromstart<cr>:redraw!<cr>
-
 " https://www.reddit.com/r/vim/comments/320ej2/vimrc_syntax_highlighting_broken_with_long/
 syntax sync fromstart
 au BufEnter *.* :syntax sync fromstart
+
+" [vim-markdown](https://github.com/plasticboy/vim-markdown)
+let g:vim_markdown_math=1
