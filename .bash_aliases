@@ -85,8 +85,8 @@ alias vv='fasd -e vim -b current -i'    # open file in current folder (interacti
 alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'                # global cd (interactive)
 
-if [ -f "$PWD/.fasdrc" ]; then
-    . $PWD/.fasdrc
+if [ -f "$HOME/.fasdrc" ]; then
+    . $HOME/.fasdrc
 fi
 alias f="open ." # overwrite f
 alias emem="sudo bash -c 'sync; echo 1 > /proc/sys/vm/drop_caches'"
