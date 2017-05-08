@@ -168,5 +168,18 @@ gp() {
     fi
 }
 
+dd() {
+    [[ -n "$1" ]] || { echo "Usage: dd [some name]"; return; }
+    docs=$(find $WIKI_DIR -name "*$1*")
+    cnt=$(echo $docs | wc -w)
+    if [ $cnt -eq 1 ]; then
+        vi $docs
+    else
+      for d in $docs; do
+        echo $d
+      done
+    fi
+}
+
 # sed -i '' 's/foo/bar/' file
 # mkvirtualenv myenv --system-site-packages
