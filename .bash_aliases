@@ -76,13 +76,15 @@ alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
 
 # fasd
+eval "$(fasd --init bash-hook bash-ccomp bash-ccomp-install)"
 alias s='fasd -si'                      # show / search / select
 alias c='fasd_cd -b current'            # cd in current folder
 alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
 alias v='fasd -e vim -b current'        # open file in current folder
 alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
+alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'                # global cd (interactive)
-eval "$(fasd --init auto)"
+
 if [ -f "$PWD/.fasdrc" ]; then
     . $PWD/.fasdrc
 fi
