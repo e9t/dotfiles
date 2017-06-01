@@ -102,7 +102,7 @@ alias gistup="gistup --private --"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # NOTE: The following line is VERY SLOW
-alias sourcen='. "$(brew --prefix nvm)/nvm.sh"'
+alias sourcen='. "${NVM_DIR}/nvm.sh"'
 
 # python
 alias pyserv='python -m SimpleHTTPServer'
