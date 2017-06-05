@@ -5,6 +5,11 @@
 #
 # Author: Lucy Park <me@lucypark.kr>
 # Created: 2017-05-08
+# Requirements: libevent, ncurses for tmux
+# Usage:
+#
+#   wget http://bit.ly/inite9t
+#   bash inite9t
 # -----------------------------------------------
 
 set -euo pipefail
