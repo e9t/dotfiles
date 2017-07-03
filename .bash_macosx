@@ -30,6 +30,8 @@ alias pe="vi $WIKI_DIR/others/people.markdown"
 alias pa="vi $WIKI_DIR/projects/papago.markdown"
 alias mt="vi $WIKI_DIR/dm/mt.markdown"
 alias na="vi $WIKI_DIR/careers/naver.markdown"
+alias limit_dropbox="cpulimit -p $(pgrep Dropbox) -l 10"
+alias limit_amazon="cpulimit -p $(pgrep 'Amazon Drive') -l 10"
 
 # crontab
 # [to use vim](http://askubuntu.com/a/55026/138835)
@@ -48,3 +50,6 @@ export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
 #
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
+
+# iterm
+. ~/.iterm2_shell_integration.bash
