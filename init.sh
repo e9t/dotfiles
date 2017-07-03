@@ -68,4 +68,6 @@ if [ $install_packages -eq 1 ]; then
     set +x
 fi
 
+pip install gpustat
+
 # vim:sw=4:ts=4:et
