@@ -43,8 +43,6 @@ alias ..5='cd ../../../../..'
 
 alias vi='vim'
 alias agi="ag --ignore-dir"
-alias duh='du -d 0 -h'
-alias duhs='du -hs * | gsort -h'
 alias e2u="iconv -f euckr -t utf8"
 alias ports="lsof -Pn -i4 | grep LISTEN"
 alias rm='rm -i'

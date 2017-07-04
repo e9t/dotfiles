@@ -1,3 +1,7 @@
+# Command shortcuts
+alias duh='du -h --max-depth=0'
+alias duhs='du -hs * | sort -h'
+
 # bash session timeout
 export TMOUT=0
 
