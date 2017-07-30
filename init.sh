@@ -5,6 +5,11 @@
 #
 # Author: Lucy Park <me@lucypark.kr>
 # Created: 2017-05-08
+# Requirements: libevent, ncurses for tmux
+# Usage:
+#
+#   wget http://bit.ly/inite9t
+#   bash inite9t
 # -----------------------------------------------
 
 set -euo pipefail
@@ -67,5 +72,7 @@ if [ $install_packages -eq 1 ]; then
     cd $DEV/pkgs/tmux && ./autogen.sh && ./configure --exec_prefix="$home" && make && ln -s $PWD/tmux $home/bin
     set +x
 fi
+
+pip install gpustat
 
 # vim:sw=4:ts=4:et

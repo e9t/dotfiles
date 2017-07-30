@@ -102,7 +102,7 @@ alias gistup="gistup --private --"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # NOTE: The following line is VERY SLOW
-alias sourcen='. "$(brew --prefix nvm)/nvm.sh"'
+alias sourcen='. "${NVM_DIR}/nvm.sh"'
 
 # python
 alias pyserv='python -m SimpleHTTPServer'
@@ -117,7 +117,7 @@ export ITERMPLOT="rv"
 # tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias tmux_rw="tmux rename-window"
-alias ta="tmux attach || tmux"
+alias ta="tmux attach -t lucypark || tmux new -s lucypark"
 
 # Spark
 export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
