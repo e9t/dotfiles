@@ -134,21 +134,7 @@ eval "$(rbenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/)
-# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-# export WORKON_HOME=~/envs
-# mkdir -p $WORKON_HOME
-# source /usr/local/bin/virtualenvwrapper.sh
-
-# [autoenv](https://github.com/kennethreitz/autoenv)
-# source `which activate.sh`
-alias e="workon venv"
-# activate venv every time there is a file named .env in pwd
-if [ -f "$PWD/.env" ]; then
-    if [ -z "$VIRTUAL_ENV" ]; then workon venv; fi
-fi
-alias da="deactivate"
+eval "$(pyenv virtualenv-init -)"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
