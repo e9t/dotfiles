@@ -66,7 +66,8 @@ if [ $install_packages -eq 1 ]; then
     cd $DEV/pkgs
     git submodule init
     git submodule update
-    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    git clone https://github.com/rbenv/ruby-build.git $(rbenv root)/plugins/ruby-build
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
     cd $DEV/pkgs/fasd && PREFIX=$home make install
     cd $DEV/pkgs/htop && ./autogen.sh && ./configure --prefix=$home && make && ln -s $PWD/htop $home/bin
     cd $DEV/pkgs/tmux && ./autogen.sh && ./configure --exec_prefix="$home" && make && ln -s $PWD/tmux $home/bin
