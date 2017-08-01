@@ -62,7 +62,7 @@ if [ $install_packages -eq 1 ]; then
     set -x  # start debug mode
     mkdir -p $DEV
     cd $DEV
-    git clone https://github.com/e9t/pkgs.git
+    git clone https://e9t@github.com/e9t/pkgs.git
     cd $DEV/pkgs
     git submodule init
     git submodule update
