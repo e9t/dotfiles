@@ -194,5 +194,10 @@ dd() {
     fi
 }
 
+readlinkf() {
+    [[ -n "$1" ]] || { echo "Usage: readlinkf [filename]"; return; }
+    echo $PWD/$1
+}
+
 # sed -i '' 's/foo/bar/' file
 # mkvirtualenv myenv --system-site-packages
