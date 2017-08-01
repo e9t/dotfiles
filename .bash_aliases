@@ -95,7 +95,7 @@ alias gaeup='appcfg.py update .'
 
 # github/gist
 alias gistc='git clone git@gist.github.com:'
-alias gistup="gistup --private --"
+alias gistup="gistup --remote=gist --private --"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -114,7 +114,6 @@ export ITERMPLOT="rv"
 
 # tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
-alias tmux_rw="tmux rename-window"
 alias ta="tmux attach -t lucypark || tmux new -s lucypark"
 
 # Spark
