@@ -96,7 +96,6 @@ alias gaeup='appcfg.py update .'
 # github/gist
 alias gistc='git clone git@gist.github.com:'
 alias gistup="gistup --remote=gist --private --"
-alias git_get_largest_files_in_tree="git rev-list --objects --all | grep \"$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -10 | awk '{print$1}')\""  # https://stackoverflow.com/a/20609719/1054939
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
