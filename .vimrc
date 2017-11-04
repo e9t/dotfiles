@@ -461,8 +461,8 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 nnoremap <leader>b :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/.*/_docs/??/<CR><CR>
 
-" Open doc in Typora
-nnoremap <leader>c :!open -a "Typora" %:p<CR>
+" Open doc in Haroopad
+nnoremap <leader>c :!open -a "Haroopad" %:p<CR>
 
 " Open any file in Sublime
 nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
