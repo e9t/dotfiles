@@ -54,6 +54,7 @@ if [ $install_dotfiles -eq 1 ]; then
     sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
     git submodule init
     git submodule update
+    source .bash_aliases
     pyenv install 2.7.13
     pyenv global 2.7.13
     set +x
