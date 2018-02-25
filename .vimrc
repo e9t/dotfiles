@@ -274,6 +274,7 @@ autocmd BufWrite *.less :call DeleteTrailingWS()
 autocmd BufWrite *.markdown :call DeleteTrailingWS()
 autocmd BufWrite *.md :call DeleteTrailingWS()
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.tex :call DeleteTrailingWS()
 autocmd BufWrite *.markdown :call ReplaceQuotes()
 autocmd BufWrite *.md :call ReplaceQuotes()
 
@@ -495,6 +496,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
 let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702,W391'
+let g:syntastic_tex_chktex_args = '--nowarn=8 --nowarn=44'
 command! S execute ':SyntasticToggleMode'
 
 " [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
