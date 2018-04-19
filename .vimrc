@@ -522,3 +522,6 @@ au BufEnter *.* :syntax sync fromstart
 
 " [vim-markdown](https://github.com/plasticboy/vim-markdown)
 let g:vim_markdown_math=1
+
+" https://github.com/embear/vim-localvimrc
+let g:localvimrc_persistent=2

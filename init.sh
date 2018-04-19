@@ -77,6 +77,6 @@ if [ $install_packages -eq 1 ]; then
     set +x
 fi
 
-pip install gpustat
+pip install flake8 gpustat
 
 # vim:sw=4:ts=4:et
