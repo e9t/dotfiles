@@ -53,6 +53,8 @@ alias rscp="rsync -r --ignore-existing --progress --rsh=ssh"
 alias rscpb="rsync -r --partial --progress --rsh=ssh"
 alias tl='tree -L 2'
 alias wgetr="wget -r --no-parent"
+alias sshuttles="sshuttle -r lovit 0/0"
+
 
 # ----------------------------------------------------------------------------
 # App specific
@@ -115,6 +117,7 @@ export ITERMPLOT="rv"
 # tmux
 #alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
 alias ta="tmux attach -t lucypark || tmux new -s lucypark"
+alias tw="tmux rename-window -t"
 
 # Spark
 export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
