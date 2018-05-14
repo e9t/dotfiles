@@ -495,8 +495,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
-let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702,W391'
 let g:syntastic_tex_chktex_args = '--nowarn=8 --nowarn=44'
+" E221 - multiple spaces before operator
+" E402 - module level import not at top of file
+" E501 - line too long
+let g:syntastic_python_flake8_post_args='--ignore=E221,E402,E501'
 command! S execute ':SyntasticToggleMode'
 
 " [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
