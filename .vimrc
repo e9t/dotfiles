@@ -528,3 +528,6 @@ let g:vim_markdown_math=1
 
 " https://github.com/embear/vim-localvimrc
 let g:localvimrc_persistent=2
+
+" [ctags](https://stackoverflow.com/a/5019111/1054939)
+set tags=tags;/
