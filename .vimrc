@@ -531,3 +531,4 @@ let g:localvimrc_persistent=2
 
 " [ctags](https://stackoverflow.com/a/5019111/1054939)
 set tags=tags;/
+nnoremap <leader>. :CtrlPTag<cr>
