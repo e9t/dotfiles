@@ -206,8 +206,9 @@ zs() {
     dbfile="$HOME/Library/Containers/com.mozkan.flashpdfsearch/Data/Library/Application Support/com.mozkan.flashpdfsearch/idb.sqlite"
     zwordid=$(sqlite3 "$dbfile" "select ZWORDID from ZWORDS where ZWORD=\"$zword\";")
     echo -e "COUNT\tPATH"
+    nfiles=`sqlite3 "$dbfile" "select count (distinct ZDOCNO) from ZINDEXITEM where ZWORDID=$zwordid";`
     sqlite3 "$dbfile" "select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where ZINDEXITEM.ZWORDID=\"$zwordid\" group by ZINDEXITEM.ZDOCNO order by count(*) desc limit $zlim;" | awk -F "|" '{printf("%d\t\"%s\"\n"), $1, $2}'
-    echo "$zlim files"
+    echo "Showing $zlim files from $nfiles"
 }
 
 # sed -i '' 's/foo/bar/' file
