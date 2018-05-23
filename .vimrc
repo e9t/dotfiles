@@ -495,8 +495,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
-let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702,W391'
 let g:syntastic_tex_chktex_args = '--nowarn=8 --nowarn=44'
+" E221 - multiple spaces before operator
+" E402 - module level import not at top of file
+" E501 - line too long
+let g:syntastic_python_flake8_post_args='--ignore=E221,E402,E501'
 command! S execute ':SyntasticToggleMode'
 
 " [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
@@ -525,3 +528,7 @@ let g:vim_markdown_math=1
 
 " https://github.com/embear/vim-localvimrc
 let g:localvimrc_persistent=2
+
+" [ctags](https://stackoverflow.com/a/5019111/1054939)
+set tags=tags;/
+nnoremap <leader>. :CtrlPTag<cr>
