@@ -200,12 +200,14 @@ readlinkf() {
 }
 
 zs() {
-    [[ -n "$1" ]] || { echo "Usage: zs [word]"; return; }
+    [[ -n "$1" ]] || { echo "Usage: zs [word] [limit (default=10)]"; return; }
     zword="$1"
+    zlim=${2:-10}
     dbfile="$HOME/Library/Containers/com.mozkan.flashpdfsearch/Data/Library/Application Support/com.mozkan.flashpdfsearch/idb.sqlite"
     zwordid=$(sqlite3 "$dbfile" "select ZWORDID from ZWORDS where ZWORD=\"$zword\";")
-    echo "count|path"
-    sqlite3 "$dbfile" "select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where ZINDEXITEM.ZWORDID=\"$zwordid\" group by ZINDEXITEM.ZDOCNO order by count(*) desc;"
+    echo -e "COUNT\tPATH"
+    sqlite3 "$dbfile" "select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where ZINDEXITEM.ZWORDID=\"$zwordid\" group by ZINDEXITEM.ZDOCNO order by count(*) desc limit $zlim;" | awk -F "|" '{printf("%d\t\"%s\"\n"), $1, $2}'
+    echo "$zlim files"
 }
 
 # sed -i '' 's/foo/bar/' file
