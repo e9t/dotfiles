@@ -199,5 +199,14 @@ readlinkf() {
     echo $PWD/$1
 }
 
+zs() {
+    [[ -n "$1" ]] || { echo "Usage: zs [word]"; return; }
+    zword="$1"
+    dbfile="$HOME/Library/Containers/com.mozkan.flashpdfsearch/Data/Library/Application Support/com.mozkan.flashpdfsearch/idb.sqlite"
+    zwordid=$(sqlite3 "$dbfile" "select ZWORDID from ZWORDS where ZWORD=\"$zword\";")
+    echo "count|path"
+    sqlite3 "$dbfile" "select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where ZINDEXITEM.ZWORDID=\"$zwordid\" group by ZINDEXITEM.ZDOCNO order by count(*) desc;"
+}
+
 # sed -i '' 's/foo/bar/' file
 # mkvirtualenv myenv --system-site-packages
