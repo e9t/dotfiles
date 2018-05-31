@@ -200,14 +200,25 @@ readlinkf() {
 }
 
 zs() {
-    [[ -n "$1" ]] || { echo "Usage: zs [word] [limit (default=10)]"; return; }
-    zword="$1"
+    [[ -n "$1" ]] || { echo "Usage: zs [words] [limit (default=10)]"; return; }
+    zwords="$1"
     zlim=${2:-10}
     dbfile="$HOME/Library/Containers/com.mozkan.flashpdfsearch/Data/Library/Application Support/com.mozkan.flashpdfsearch/idb.sqlite"
-    zwordid=$(sqlite3 "$dbfile" "select ZWORDID from ZWORDS where ZWORD=\"$zword\";")
+
+    # get wordids
+    where="ZWORD=\"${zwords/ /\" or ZWORD=\"}\""
+    zwordids=$(sqlite3 "$dbfile" "select ZWORDID from ZWORDS where $where;")
+
     echo -e "COUNT\tPATH"
-    nfiles=`sqlite3 "$dbfile" "select count (distinct ZDOCNO) from ZINDEXITEM where ZWORDID=$zwordid";`
-    sqlite3 "$dbfile" "select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where ZINDEXITEM.ZWORDID=\"$zwordid\" group by ZINDEXITEM.ZDOCNO order by count(*) desc limit $zlim;" | awk -F "|" '{printf("%d\t\"%s\"\n"), $1, $2}'
+
+    # show filenames
+    where=" ZINDEXITEM.ZWORDID=\"${zwordids/$'\n'/\" or ZINDEXITEM.ZWORDID=\"}\""
+    sql="select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where $where group by ZINDEXITEM.ZDOCNO order by count(*) desc limit $zlim;"
+    sqlite3 "$dbfile" "$sql" | awk -F "|" '{printf("%d\t\"%s\"\n"), $1, $2}'
+
+    # show counts
+    where="ZWORDID=\"${zwordids/$'\n'/\" or ZWORDID=\"}\""
+    nfiles=`sqlite3 "$dbfile" "select count (distinct ZDOCNO) from ZINDEXITEM where $where;"`
     echo "Showing $zlim files from $nfiles"
 }
 
