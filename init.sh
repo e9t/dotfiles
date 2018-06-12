@@ -30,18 +30,10 @@ if ! [[ $response == "y" ]]; then
   echo "Aborting..."
   exit 0
 fi
-read -r -p "This is your last warning. [y/N] " response
-if ! [[ $response == "y" ]]; then
-  echo "Aborting..."
-  exit 0
-fi
 for i in {5..1}; do
     echo $i
     sleep 1
 done
-
-# define paths
-DEV="$home/dev"
 
 # start setup
 if [ $install_dotfiles -eq 1 ]; then
@@ -54,29 +46,26 @@ if [ $install_dotfiles -eq 1 ]; then
     sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
     git submodule init
     git submodule update
-    source .bash_aliases
-    pyenv install 2.7.13
-    pyenv global 2.7.13
+
+    # start pyenv and install python
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    pyenv install 2.7.13 3.6.1
+    pyenv global 2.7.13 3.6.1
     set +x
 fi
 
 if [ $install_packages -eq 1 ]; then
     echo "# Install packages..."
     set -x  # start debug mode
-    mkdir -p $DEV
-    cd $DEV
-    git clone https://e9t@github.com/e9t/pkgs.git
-    cd $DEV/pkgs
-    git submodule init
-    git submodule update
-    git clone https://github.com/rbenv/ruby-build.git $(rbenv root)/plugins/ruby-build
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-    cd $DEV/pkgs/fasd && PREFIX=$home make install
-    cd $DEV/pkgs/htop && ./autogen.sh && ./configure --prefix=$home && make && ln -s $PWD/htop $home/bin
-    cd $DEV/pkgs/tmux && ./autogen.sh && ./configure --exec_prefix="$home" && make && ln -s $PWD/tmux $home/bin
+    pip install ipython flake8 gpustat tensorflow-gpu tensorboard konlpy
+
+    # For CentOS 7
+    # NOTE: tmux install by yum installs v1.8, will need manual install
+    # TODO: install by OS
+    sudo yum install the_silver_searcher htop fasd git-lfs tmux
     set +x
 fi
-
-pip install flake8 gpustat
 
 # vim:sw=4:ts=4:et
