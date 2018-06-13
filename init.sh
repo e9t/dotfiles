@@ -47,18 +47,25 @@ if [ $install_dotfiles -eq 1 ]; then
     git submodule init
     git submodule update
 
-    # start pyenv and install python
-    export PYENV_ROOT="$home/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    pyenv install 2.7.13 3.6.1
-    pyenv global 2.7.13 3.6.1
     set +x
 fi
 
 if [ $install_packages -eq 1 ]; then
     echo "# Install packages..."
     set -x  # start debug mode
+
+    # Start pyenv and install python
+    export PYENV_ROOT="$home/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    pyenv install 2.7.13 3.6.1
+    pyenv global 2.7.13 3.6.1
+
+    # Enable pyenv-virtualenv
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+    eval "$(pyenv virtualenv-init -)"
+
+    # Install python packages
     pip install ipython flake8 gpustat tensorflow-gpu tensorboard konlpy
 
     # For CentOS 7
