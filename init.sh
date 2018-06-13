@@ -48,7 +48,7 @@ if [ $install_dotfiles -eq 1 ]; then
     git submodule update
 
     # start pyenv and install python
-    export PYENV_ROOT="$HOME/.pyenv"
+    export PYENV_ROOT="$home/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
     pyenv install 2.7.13 3.6.1
