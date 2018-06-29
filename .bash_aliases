@@ -18,7 +18,7 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 
 # Tell 'ls' to be colorful
 export CLICOLOR=1
-export LSCOLORS="GxFxCxDxBxegedabagacedx"
+export LSCOLORS='GxFxCxDxBxegedabagacedx'
 pgb() {
     # Show git branch
     git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
@@ -26,7 +26,7 @@ pgb() {
 export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
 
 # Linker library
-export LD_LIBRARY_PATH="/usr/local/lib"
+export LD_LIBRARY_PATH='/usr/local/lib'
 
 
 # ----------------------------------------------------------------------------
@@ -34,7 +34,7 @@ export LD_LIBRARY_PATH="/usr/local/lib"
 # ----------------------------------------------------------------------------
 
 # global
-alias sourceb="source ~/.bashrc"
+alias sourceb='source ~/.bashrc'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -44,23 +44,23 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias vi='vim'
-alias agi="ag --ignore-dir"
-alias e2u="iconv -f euckr -t utf8"
-alias ports="lsof -Pn -i4 | grep LISTEN"
+alias agi='ag --ignore-dir'
+alias e2u='iconv -f euckr -t utf8'
+alias ports='lsof -Pn -i4 | grep LISTEN'
 alias rm='rm -i'
 alias rmed='find . -type d -empty -delete'
 # for many small files
-alias rscp="rsync -r --ignore-existing --progress --rsh=ssh"
+alias rscp='rsync -r --ignore-existing --progress --rsh=ssh'
 # for a few big files
-alias rscpb="rsync -r --partial --progress --rsh=ssh"
+alias rscpb='rsync -r --partial --progress --rsh=ssh'
 alias tl='tree -L 2'
-alias wgetr="wget -r --no-parent"
-alias sshuttles="sshuttle -r lovit 0/0"
+alias wgetr='wget -r --no-parent'
+alias sshuttles='sshuttle -r lovit 0/0'
 
 # dbs
 alias start_mongo='mongod --fork'
 alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
-alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo 'stopped'; fi"
+alias status_mongo='killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo "stopped"; fi'
 alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias status_pg='pg_ctl -D /usr/local/var/postgres status'
@@ -77,15 +77,15 @@ alias zz='fasd_cd -d -i'                # global cd (interactive)
 if [ -f "$HOME/.fasdrc" ]; then
     . $HOME/.fasdrc
 fi
-alias f="open ." # overwrite f
-alias emem="sudo bash -c 'sync; echo 1 > /proc/sys/vm/drop_caches'"
+alias f='open .' # overwrite f
+alias emem='sudo bash -c "sync; echo 1 > /proc/sys/vm/drop_caches"'
 
 # gae
 alias gae='dev_appserver.py --port=8192 .'
 alias gaeup='appcfg.py update .'
 
 # github/gist
-alias gistup="gistup --remote=gist --private --"
+alias gistup='gistup --remote=gist --private --'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -99,12 +99,12 @@ alias python='time python'
 alias python3='time python3'
 
 # https://github.com/daleroberts/itermplot
-export MPLBACKEND="module://itermplot"
-export ITERMPLOT="rv"
+export MPLBACKEND='module://itermplot'
+export ITERMPLOT='rv'
 
 # tmux
-alias ta="tmux attach -t lucypark || tmux new -s lucypark"
-alias tw="tmux rename-window -t"
+alias ta='tmux attach -t lucypark || tmux new -s lucypark'
+alias tw='tmux rename-window -t'
 
 # Spark
 export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
