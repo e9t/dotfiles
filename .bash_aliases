@@ -57,14 +57,6 @@ alias tl='tree -L 2'
 alias wgetr='wget -r --no-parent'
 alias sshuttles='sshuttle -r lovit 0/0'
 
-# dbs
-alias start_mongo='mongod --fork'
-alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
-alias status_mongo='killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo "stopped"; fi'
-alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
-alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias status_pg='pg_ctl -D /usr/local/var/postgres status'
-
 # fasd
 eval "$(fasd --init bash-hook bash-ccomp bash-ccomp-install)"
 alias s='fasd -si'                      # show / search / select
@@ -80,10 +72,6 @@ fi
 alias f='open .' # overwrite f
 alias emem='sudo bash -c "sync; echo 1 > /proc/sys/vm/drop_caches"'
 
-# gae
-alias gae='dev_appserver.py --port=8192 .'
-alias gaeup='appcfg.py update .'
-
 # github/gist
 alias gistup='gistup --remote=gist --private --'
 
@@ -95,20 +83,10 @@ alias sourcen='. "${NVM_DIR}/nvm.sh"'
 # python
 alias pyserv='python -m SimpleHTTPServer'
 alias pyprofile='python -m cProfile --sort=cumulative'
-alias python='time python'
-alias python3='time python3'
-
-# https://github.com/daleroberts/itermplot
-export MPLBACKEND='module://itermplot'
-export ITERMPLOT='rv'
 
 # tmux
 alias ta='tmux attach -t lucypark || tmux new -s lucypark'
 alias tw='tmux rename-window -t'
-
-# Spark
-export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
-export PATH=$PATH:$SPARK_HOME/bin
 
 # SCM Breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
