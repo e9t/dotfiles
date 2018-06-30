@@ -257,7 +257,7 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing whitespace on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   %s/\s\+$//ge
 endfunc
@@ -469,11 +469,13 @@ nnoremap <leader>c :!open -a "Haroopad" %:p<CR>
 nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
 
 " [Highlight tabs](http://stackoverflow.com/q/24232354/1054939)
+" Unset by entering `set nolist`
 set listchars=tab:>-
 set list
 highlight Whitespace ctermfg=DarkBlue
 highlight ColorColumn ctermbg=DarkRed
 autocmd bufenter * match Whitespace /\s/
+map <leader>s :set list!<cr>
 
 " [Nerdtree](https://github.com/scrooloose/nerdtree)
 map <C-n> :NERDTreeToggle<CR>
@@ -501,13 +503,6 @@ let g:syntastic_tex_chktex_args = '--nowarn=8 --nowarn=44'
 " E501 - line too long
 let g:syntastic_python_flake8_post_args='--ignore=E221,E402,E501'
 command! S execute ':SyntasticToggleMode'
-
-" [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
-let g:ycm_confirm_extra_conf = 0
-" let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
-nnoremap <leader>yt :let g:ycm_auto_trigger=0<CR>  " turn off YCM
-nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
 
 " [junegunn/vim-easy-align: A Vim alignment plugin](https://github.com/junegunn/vim-easy-align)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
