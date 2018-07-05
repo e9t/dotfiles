@@ -101,6 +101,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init - --no-rehash)"
 # eval "$(pyenv virtualenv-init -)"
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
 # ----------------------------------------------------------------------------
 # Misc
 # ----------------------------------------------------------------------------
