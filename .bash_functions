@@ -224,7 +224,7 @@ select_file() {
     given_file="$1"
     cd $STUDY_DIR
     grep -In --line-buffered --color=never -r "" --include "*.md" --include "*.markdown" * |\
-    fzf --exact --delimiter=: --preview="cat {1}" --preview-window=right:70%:wrap --query="$given_file"
+    fzf --exact --delimiter=: --preview="cat {1}" --preview-window=right:70%:wrap --height=100% --query="$given_file"
 }
 
 # sed -i '' 's/foo/bar/' file
