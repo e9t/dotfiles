@@ -215,7 +215,9 @@ notes() {
     file_to_edit=`select_file $previous_file`
 
     if [ -n "$file_to_edit" ] ; then
-        "$EDITOR" "$STUDY_DIR/$file_to_edit"
+        cd $STUDY_DIR
+        file=$(echo "$file_to_edit" | cut -d ':' -f1)
+        "$EDITOR" $file
         notes "$file_to_edit"
     fi
 }
@@ -224,7 +226,7 @@ select_file() {
     given_file="$1"
     cd $STUDY_DIR
     grep -In --line-buffered --color=never -r "" --include "*.md" --include "*.markdown" * |\
-    fzf --exact --delimiter=: --preview="cat {1}" --preview-window=right:70%:wrap --height=100% --query="$given_file"
+    fzf --exact --delimiter=":" --preview="cat {1}" --preview-window=right:70%:wrap --height=100% --query="$given_file"
 }
 
 # sed -i '' 's/foo/bar/' file
