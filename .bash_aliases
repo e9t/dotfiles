@@ -93,7 +93,7 @@ alias tw='tmux rename-window -t'
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
+alias sourcer='eval "$(rbenv init -)"'
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
