@@ -170,7 +170,7 @@ gp() {
 
 d() {
     [[ -n "$1" ]] || { echo "Usage: d [some name]"; return; }
-    docs=$(find $WIKI_DIR -name "*$1*")
+    docs=$(find $WIKI_DIR -path "*$1*")
     cnt=$(echo $docs | wc -w)
     if [ $cnt -eq 1 ]; then
         vi $docs
