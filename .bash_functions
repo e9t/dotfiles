@@ -181,7 +181,7 @@ d() {
     fi
 }
 
-readlinkf() {
+realpath() {
     [[ -n "$1" ]] || { echo "Usage: readlinkf [filename]"; return; }
     echo $PWD/$1
 }
