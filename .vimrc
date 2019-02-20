@@ -257,7 +257,7 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing whitespace on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   %s/\s\+$//ge
 endfunc
@@ -463,17 +463,19 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 nnoremap <leader>b :!open -a "Google Chrome" http://localhost:4000/docs/%:p:r:s?/.*/_docs/??/<CR><CR>
 
 " Open doc in Haroopad
-nnoremap <leader>c :!open -a "Haroopad" %:p<CR>
+nnoremap <leader>c :!open -a "Typora" %:p<CR>
 
 " Open any file in Sublime
 nnoremap <leader>s :!open -a "Sublime Text" %:p<CR>
 
 " [Highlight tabs](http://stackoverflow.com/q/24232354/1054939)
+" Unset by entering `set nolist`
 set listchars=tab:>-
 set list
 highlight Whitespace ctermfg=DarkBlue
 highlight ColorColumn ctermbg=DarkRed
 autocmd bufenter * match Whitespace /\s/
+map <leader>s :set list!<cr>
 
 " [Nerdtree](https://github.com/scrooloose/nerdtree)
 map <C-n> :NERDTreeToggle<CR>
@@ -495,16 +497,12 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
-let g:syntastic_python_flake8_post_args='--ignore=E221,E231,E501,E702,W391'
 let g:syntastic_tex_chktex_args = '--nowarn=8 --nowarn=44'
+" E221 - multiple spaces before operator
+" E402 - module level import not at top of file
+" E501 - line too long
+let g:syntastic_python_flake8_post_args='--ignore=E221,E402,E501'
 command! S execute ':SyntasticToggleMode'
-
-" [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
-let g:ycm_confirm_extra_conf = 0
-" let g:loaded_youcompleteme = 1  " [disable](https://github.com/Valloric/YouCompleteMe/issues/662)
-nnoremap <leader>yt :let g:ycm_auto_trigger=0<CR>  " turn off YCM
-nnoremap <leader>yy :let g:ycm_auto_trigger=1<CR>  " turn on YCM
 
 " [junegunn/vim-easy-align: A Vim alignment plugin](https://github.com/junegunn/vim-easy-align)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -525,3 +523,7 @@ let g:vim_markdown_math=1
 
 " https://github.com/embear/vim-localvimrc
 let g:localvimrc_persistent=2
+
+" [ctags](https://stackoverflow.com/a/5019111/1054939)
+set tags=tags;/
+nnoremap <leader>. :CtrlPTag<cr>

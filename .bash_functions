@@ -170,20 +170,7 @@ gp() {
 
 d() {
     [[ -n "$1" ]] || { echo "Usage: d [some name]"; return; }
-    docs=$(find $WIKI_DIR -name "$1.markdown")
-    cnt=$(echo $docs | wc -w)
-    if [ $cnt -eq 1 ]; then
-        vi $docs
-    else
-      for d in $docs; do
-        echo $d
-      done
-    fi
-}
-
-dd() {
-    [[ -n "$1" ]] || { echo "Usage: dd [some name]"; return; }
-    docs=$(find $WIKI_DIR -name "*$1*")
+    docs=$(find $WIKI_DIR -path "*$1*")
     cnt=$(echo $docs | wc -w)
     if [ $cnt -eq 1 ]; then
         vi $docs
@@ -197,6 +184,49 @@ dd() {
 readlinkf() {
     [[ -n "$1" ]] || { echo "Usage: readlinkf [filename]"; return; }
     echo $PWD/$1
+}
+
+zs() {
+    [[ -n "$1" ]] || { echo "Usage: zs [words] [limit (default=10)]"; return; }
+    zwords="$1"
+    zlim=${2:-10}
+    dbfile="$HOME/Library/Containers/com.mozkan.flashpdfsearch/Data/Library/Application Support/com.mozkan.flashpdfsearch/idb.sqlite"
+
+    # get wordids
+    where="ZWORD=\"${zwords/ /\" or ZWORD=\"}\""
+    zwordids=$(sqlite3 "$dbfile" "select ZWORDID from ZWORDS where $where;")
+
+    echo -e "COUNT\tPATH"
+
+    # show filenames
+    where=" ZINDEXITEM.ZWORDID=\"${zwordids/$'\n'/\" or ZINDEXITEM.ZWORDID=\"}\""
+    sql="select count(*), ZDOCS.ZURL from ZINDEXITEM inner join ZDOCS on ZINDEXITEM.ZDOCNO = ZDOCS.ZDOCNO where $where group by ZINDEXITEM.ZDOCNO order by count(*) desc limit $zlim;"
+    sqlite3 "$dbfile" "$sql" | awk -F "|" '{printf("%d\t\"%s\"\n"), $1, $2}'
+
+    # show counts
+    where="ZWORDID=\"${zwordids/$'\n'/\" or ZWORDID=\"}\""
+    nfiles=`sqlite3 "$dbfile" "select count (distinct ZDOCNO) from ZINDEXITEM where $where;"`
+    echo "Showing $zlim files from $nfiles"
+}
+
+notes() {
+    # Source: https://medium.com/adorableio/simple-note-taking-with-fzf-and-vim-2a647a39cfa
+    previous_file="$1"
+    file_to_edit=`select_file $previous_file`
+
+    if [ -n "$file_to_edit" ] ; then
+        cd $STUDY_DIR
+        file=$(echo "$file_to_edit" | cut -d ':' -f1)
+        "$EDITOR" $file
+        notes "$file_to_edit"
+    fi
+}
+
+select_file() {
+    given_file="$1"
+    cd $STUDY_DIR
+    grep -In --line-buffered --color=never -r "" --include "*.md" --include "*.markdown" * |\
+    fzf --exact --delimiter=":" --preview="cat {1}" --preview-window=right:70%:wrap --height=100% --query="$given_file"
 }
 
 # sed -i '' 's/foo/bar/' file

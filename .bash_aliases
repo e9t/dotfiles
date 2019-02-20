@@ -18,20 +18,23 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 
 # Tell 'ls' to be colorful
 export CLICOLOR=1
-export LSCOLORS="GxFxCxDxBxegedabagacedx"
+export LSCOLORS='GxFxCxDxBxegedabagacedx'
 pgb() {
     # Show git branch
     git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
 }
 export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
 
+# Linker library
+export LD_LIBRARY_PATH='/usr/local/lib'
+
 
 # ----------------------------------------------------------------------------
 # Aliases
 # ----------------------------------------------------------------------------
 
-alias sourceb="source ~/.bashrc"
-
+# global
+alias sourceb='source ~/.bashrc'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -40,40 +43,19 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-
 alias vi='vim'
-alias agi="ag --ignore-dir"
-alias e2u="iconv -f euckr -t utf8"
-alias ports="lsof -Pn -i4 | grep LISTEN"
+alias agi='ag --ignore-dir'
+alias e2u='iconv -f euckr -t utf8'
+alias ports='lsof -Pn -i4 | grep LISTEN'
 alias rm='rm -i'
 alias rmed='find . -type d -empty -delete'
 # for many small files
-alias rscp="rsync -r --ignore-existing --progress --rsh=ssh"
+alias rscp='rsync -r --ignore-existing --progress --rsh=ssh'
 # for a few big files
-alias rscpb="rsync -r --partial --progress --rsh=ssh"
+alias rscpb='rsync -r --partial --progress --rsh=ssh'
 alias tl='tree -L 2'
-alias wgetr="wget -r --no-parent"
-alias sshuttles="sshuttle -r lovit 0/0"
-
-
-# ----------------------------------------------------------------------------
-# App specific
-# ----------------------------------------------------------------------------
-
-# bleu
-alias bleulook="sed 's/[_a-zA-Z]* *= *//g; s/)//g; s/\//,/g; s/ (/,/g' | csvsort -r -c bleu | csvlook"
-alias bleubar="sed 's/[_a-zA-Z]* *= *//g; s/)//g' | csvsort -r -c bleu | csvcut -c engine,bleu | tail -n +2 | sed 's/,/ /' | bar_chart.py -Avr -m 100"
-
-# c
-export LD_LIBRARY_PATH="/usr/local/lib"
-
-# dbs
-alias start_mongo='mongod --fork'
-alias stop_mongo='killall -SIGTERM mongod 2>/dev/null'
-alias status_mongo="killall -0 mongod 2>/dev/null; if [ \$? -eq 0 ]; then echo 'started'; else echo 'stopped'; fi"
-alias start_pg='pg_ctl -D /usr/local/var/postgres -l logfile start'
-alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias status_pg='pg_ctl -D /usr/local/var/postgres status'
+alias wgetr='wget -r --no-parent'
+alias sshuttles='sshuttle -r lovit 0/0'
 
 # fasd
 eval "$(fasd --init bash-hook bash-ccomp bash-ccomp-install)"
@@ -84,20 +66,14 @@ alias v='fasd -e vim -b current'        # open file in current folder
 alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
 alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'                # global cd (interactive)
-
 if [ -f "$HOME/.fasdrc" ]; then
     . $HOME/.fasdrc
 fi
-alias f="open ." # overwrite f
-alias emem="sudo bash -c 'sync; echo 1 > /proc/sys/vm/drop_caches'"
-
-# gae
-alias gae='dev_appserver.py --port=8192 .'
-alias gaeup='appcfg.py update .'
+alias f='open .' # overwrite f
+alias emem='sudo bash -c "sync; echo 1 > /proc/sys/vm/drop_caches"'
 
 # github/gist
-alias gistc='git clone git@gist.github.com:'
-alias gistup="gistup --remote=gist --private --"
+alias gistup='gistup --remote=gist --private --'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -106,35 +82,24 @@ alias sourcen='. "${NVM_DIR}/nvm.sh"'
 
 # python
 alias pyserv='python -m SimpleHTTPServer'
-alias profile='python -m cProfile'
-alias profilec='python -m cProfile --sort=cumulative'
-#alias python='hilite time python'
-alias python3='time python3'
-# https://github.com/daleroberts/itermplot
-export MPLBACKEND="module://itermplot"
-export ITERMPLOT="rv"
+alias pyprofile='python -m cProfile --sort=cumulative'
 
 # tmux
-#alias tmux_clean="tmux kill-session -a -t `tmux display-message -p "#S"`"
-alias ta="tmux attach -t lucypark || tmux new -s lucypark"
-alias tw="tmux rename-window -t"
-
-# Spark
-export SPARK_HOME="$HOME/dev/pkgs/spark-2.0.0-bin-hadoop2.7"
-PATH=$PATH:$SPARK_HOME/bin
+alias ta='tmux attach -t lucypark || tmux new -s lucypark'
+alias tw='tmux rename-window -t'
 
 # SCM Breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+alias sourcer='eval "$(rbenv init -)"'
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init - --no-rehash)"
+# eval "$(pyenv virtualenv-init -)"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -145,7 +110,6 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 # ----------------------------------------------------------------------------
 
 # bash history logging
-
 if [ -d "$HOME/.logs" ]; then
     export HISTCONTROL=ignoredups:erasedups
     shopt -s histappend
@@ -161,7 +125,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     if [ -f "$HOME/.bash_linux" ]; then
         . ~/.bash_linux
     fi
-# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
 fi
 
 # local bash
