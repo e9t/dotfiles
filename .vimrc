@@ -485,6 +485,9 @@ let NERDTreeShowHidden=1  " show hidden files
 " [tagbar](https://github.com/majutsushi/tagbar)
 map <C-b> :TagbarToggle<CR>
 
+" [vim-fugitive](https://github.com/tpope/vim-fugitive)
+map <C-m> :Gblame<CR>
+
 " [Syntastic](https://github.com/scrooloose/syntastic)
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
