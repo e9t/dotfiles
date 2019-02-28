@@ -500,6 +500,7 @@ let g:syntastic_check_on_wq=1
 let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
+let g:syntastic_python_checkers=['flake8']
 let g:syntastic_tex_chktex_args='--nowarn=8 --nowarn=44'
 " E221 - multiple spaces before operator
 " E402 - module level import not at top of file
