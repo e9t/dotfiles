@@ -486,21 +486,21 @@ let NERDTreeShowHidden=1  " show hidden files
 map <C-b> :TagbarToggle<CR>
 
 " [vim-fugitive](https://github.com/tpope/vim-fugitive)
-map <C-m> :Gblame<CR>
+map <C-l> :Gblame<CR>
 
 " [Syntastic](https://github.com/scrooloose/syntastic)
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-" let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=1
+" let g:syntastic_quiet_messages={ "type": "style" }
+let g:syntastic_cpp_compiler='clang++'
+let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_checkers=['']
-let g:syntastic_tex_chktex_args = '--nowarn=8 --nowarn=44'
+let g:syntastic_tex_chktex_args='--nowarn=8 --nowarn=44'
 " E221 - multiple spaces before operator
 " E402 - module level import not at top of file
 " E501 - line too long
