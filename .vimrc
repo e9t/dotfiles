@@ -456,6 +456,7 @@ let g:ctrlp_follow_symlinks=1
 
 " [*.md as markdown files](http://stackoverflow.com/a/23279293/1054939)
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.lst set filetype=text
 
 " Open doc file in Chrome
 " http://vim.wikia.com/wiki/Preview_current_HTML_file
