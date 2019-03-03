@@ -5,6 +5,7 @@
     default = simple
 [alias]
     unstage = reset --soft HEAD^
+    restore = reset --hard origin/master
 [color]
     diff = auto
     status = auto
