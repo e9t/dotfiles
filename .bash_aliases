@@ -81,7 +81,7 @@ export NVM_DIR="$HOME/.nvm"
 alias sourcen='. "${NVM_DIR}/nvm.sh"'
 
 # python
-alias pyserv='python -m SimpleHTTPServer'
+alias pyserv='python -m SimpleHTTPServer || python -m http.server'
 alias pyprofile='python -m cProfile --sort=cumulative'
 
 # tmux
