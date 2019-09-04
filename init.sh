@@ -71,8 +71,13 @@ if [ $install_packages -eq 1 ]; then
 
     # For CentOS 7
     # NOTE: tmux install by yum installs v1.8, will need manual install
-    # TODO: install by OS
-    sudo yum install the_silver_searcher htop fasd git-lfs tmux
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        sudo yum install the_silver_searcher htop fasd git-lfs tmux
+    elif [[ "$OSTYPE" == "darwin"* ]]; then  # Mac OSX
+        # Install Homebrew
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew install fasd
+    fi
     set +x
 fi
 
