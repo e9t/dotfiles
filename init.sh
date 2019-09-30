@@ -20,6 +20,10 @@ install_dotfiles=1
 install_packages=1
 # -----------------------------------------------
 
+clone_repo_if_not_exists() {
+    git clone $1 || echo "repo already exists"
+}
+
 # confirm home
 read -r -p "Is \$HOME supposed to be \"$home\"? [y/N] " response
 if ! [[ $response == "y" ]]; then
@@ -40,8 +44,8 @@ if [ $install_dotfiles -eq 1 ]; then
     echo "# Install dotfiles..."
     set -x  # start debug mode
     cd $home
-    git clone https://github.com/e9t/dotfiles.git
-    mv dotfiles/* dotfiles/.[^.]* $home
+    clone_repo_if_not_exists https://github.com/e9t/dotfiles.git
+    mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
     rmdir dotfiles
     sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
     git submodule init
