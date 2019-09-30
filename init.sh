@@ -39,6 +39,7 @@ for i in {5..1}; do
     sleep 1
 done
 
+os=$(uname)
 # start setup
 if [ $install_dotfiles -eq 1 ]; then
     echo "# Install dotfiles..."
@@ -47,7 +48,11 @@ if [ $install_dotfiles -eq 1 ]; then
     clone_repo_if_not_exists https://github.com/e9t/dotfiles.git
     mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
     rmdir dotfiles
-    sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
+    if [[ $os == "Linux" ]]; then
+        sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
+    elif [[ $os == "Darwin" ]]; then
+        sed -i '' "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
+    fi
     git submodule init
     git submodule update
 
