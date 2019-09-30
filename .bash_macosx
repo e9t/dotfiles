@@ -55,4 +55,4 @@ export JYTHON_HOME=/usr/local/Cellar/jython/2.7.0/libexec
 export GREP_OPTIONS='--color=auto'
 
 # iterm
-. ~/.iterm2_shell_integration.bash
+# . ~/.iterm2_shell_integration.bash
