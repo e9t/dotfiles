@@ -67,9 +67,8 @@ if [ $install_packages -eq 1 ]; then
     export PYENV_ROOT="$home/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-    pyenv install 2.7.13
-    pyenv install 3.6.1
-    pyenv global 2.7.13 3.6.1
+    pyenv install 3.7.3
+    pyenv global 3.7.3
 
     # Enable pyenv-virtualenv
     git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
