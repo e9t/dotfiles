@@ -42,7 +42,7 @@ export EDITOR="/usr/local/bin/vim"
 
 # Java
 # [Change Java versions](http://superuser.com/a/731099/137947)
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+# export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 setjdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v $1)
 }
