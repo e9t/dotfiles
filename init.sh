@@ -20,9 +20,8 @@ install_dotfiles=1
 install_packages=1
 # -----------------------------------------------
 
-clone_repo_if_not_exists() {
-    git clone $1 || echo "repo already exists"
-}
+
+os=$(uname)
 
 # confirm home
 read -r -p "Is \$HOME supposed to be \"$home\"? [y/N] " response
@@ -39,20 +38,27 @@ for i in {5..1}; do
     sleep 1
 done
 
-os=$(uname)
 # start setup
 if [ $install_dotfiles -eq 1 ]; then
     echo "# Install dotfiles..."
     set -x  # start debug mode
     cd $home
-    clone_repo_if_not_exists https://github.com/e9t/dotfiles.git
-    mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
-    rmdir dotfiles
+
+    # clone dotfiles if not exists
+    if [[ ! -f "$home/.bash_aliases" ]]; then
+        git clone https://github.com/e9t/dotfiles.git
+        mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
+        rmdir dotfiles
+    fi
+
+    # replace "$HOME with $home"
     if [[ $os == "Linux" ]]; then
         sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
     elif [[ $os == "Darwin" ]]; then
         sed -i '' "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
     fi
+
+    # update submodules
     git submodule init
     git submodule update
 
@@ -79,11 +85,11 @@ if [ $install_packages -eq 1 ]; then
 
     # For CentOS 7
     # NOTE: tmux install by yum installs v1.8, will need manual install
-    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    if [[ $os == "Linux" ]]; then
         sudo yum install the_silver_searcher htop fasd git-lfs tmux
-    elif [[ "$OSTYPE" == "darwin"* ]]; then  # Mac OSX
+    elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         brew install fasd
     fi
     set +x
