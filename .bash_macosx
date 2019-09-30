@@ -16,6 +16,7 @@ alias skim='open -a Skim'
 alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
 alias jnote='jupyter notebook --notebook-dir $HOME/dev'
+alias subl='open -a Sublime\ Text'
 
 # Server aliases
 alias s_merci='autossh -M 10024 merci -t "tmux attach"'
@@ -56,3 +57,6 @@ export GREP_OPTIONS='--color=auto'
 
 # iterm
 # . ~/.iterm2_shell_integration.bash
+
+# rvm
+source /Users/lucypark/.rvm/scripts/rvm
