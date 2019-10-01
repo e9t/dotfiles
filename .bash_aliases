@@ -23,7 +23,11 @@ pgb() {
     # Show git branch
     git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
 }
-export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
+pgrp() {
+    # Show present git remote protocol
+    git remote get-url origin | head -c 1
+}
+export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb):$(pgrp)\[\033[00m\]\$ '
 
 # Linker library
 export LD_LIBRARY_PATH='/usr/local/lib'
