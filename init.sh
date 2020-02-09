@@ -45,7 +45,7 @@ if [ $install_dotfiles -eq 1 ]; then
     cd $home
 
     # clone dotfiles if not exists
-    if [[ ! -f "$home/.bash_aliases" ]]; then
+    if [[ ! -f "$home/.zshrc" ]]; then
         git clone https://github.com/e9t/dotfiles.git
         mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
         rmdir dotfiles
@@ -53,9 +53,9 @@ if [ $install_dotfiles -eq 1 ]; then
 
     # replace "$HOME with $home"
     if [[ $os == "Linux" ]]; then
-        sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
+        sed -i "5s@.*@export HOME=\"$home\"@" $home/.zshrc
     elif [[ $os == "Darwin" ]]; then
-        sed -i '' "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
+        sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.rshrc
     fi
 
     # update submodules
