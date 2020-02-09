@@ -1,5 +1,4 @@
 # Change when necessary
-export HOME="$HOME"
 export PATH="$PATH:$HOME/bin"
 
 # Import constants
@@ -18,12 +17,6 @@ export PYTHONIOENCODING=UTF-8   # http://stackoverflow.com/a/6361471/1054939
 
 # Tell 'ls' to be colorful
 export CLICOLOR=1
-export LSCOLORS='GxFxCxDxBxegedabagacedx'
-pgb() {
-    # Show git branch
-    git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/(master)//'
-}
-export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[33m\]$(pgb)\[\033[00m\]\$ '
 
 # Linker library
 export LD_LIBRARY_PATH='/usr/local/lib'
@@ -58,7 +51,7 @@ alias wgetr='wget -r --no-parent'
 alias sshuttles='sshuttle -r lovit 0/0'
 
 # fasd
-eval "$(fasd --init bash-hook bash-ccomp bash-ccomp-install)"
+eval "$(fasd --init auto)"
 alias s='fasd -si'                      # show / search / select
 alias c='fasd_cd -b current'            # cd in current folder
 alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
@@ -114,17 +107,6 @@ if [ -d "$HOME/.logs" ]; then
     export HISTCONTROL=ignoredups:erasedups
     shopt -s histappend
     export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
-fi
-
-# os specific
-if [ "$(uname)" == "Darwin" ]; then
-    if [ -f "$HOME/.bash_macosx" ]; then
-        . ~/.bash_macosx
-    fi
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    if [ -f "$HOME/.bash_linux" ]; then
-        . ~/.bash_linux
-    fi
 fi
 
 # local bash
