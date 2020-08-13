@@ -20,6 +20,9 @@ install_dotfiles=1
 install_packages=1
 # -----------------------------------------------
 
+
+os=$(uname)
+
 # confirm home
 read -r -p "Is \$HOME supposed to be \"$home\"? [y/N] " response
 if ! [[ $response == "y" ]]; then
@@ -40,10 +43,22 @@ if [ $install_dotfiles -eq 1 ]; then
     echo "# Install dotfiles..."
     set -x  # start debug mode
     cd $home
-    git clone https://github.com/e9t/dotfiles.git
-    mv dotfiles/* dotfiles/.[^.]* $home
-    rmdir dotfiles
-    sed -i "2s@.*@export HOME=\"$home\"@" $home/.bash_aliases
+
+    # clone dotfiles if not exists
+    if [[ ! -f "$home/.zshrc" ]]; then
+        git clone https://github.com/e9t/dotfiles.git
+        mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
+        rmdir dotfiles
+    fi
+
+    # replace "$HOME with $home"
+    if [[ $os == "Linux" ]]; then
+        sed -i "5s@.*@export HOME=\"$home\"@" $home/.zshrc
+    elif [[ $os == "Darwin" ]]; then
+        sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.rshrc
+    fi
+
+    # update submodules
     git submodule init
     git submodule update
 
@@ -59,8 +74,8 @@ if [ $install_packages -eq 1 ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
     pyenv install 2.7.13
-    pyenv install 3.6.1
-    pyenv global 2.7.13 3.6.1
+    pyenv install 3.7.3
+    pyenv global 3.7.3
 
     # Enable pyenv-virtualenv
     git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
@@ -71,11 +86,11 @@ if [ $install_packages -eq 1 ]; then
 
     # For CentOS 7
     # NOTE: tmux install by yum installs v1.8, will need manual install
-    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    if [[ $os == "Linux" ]]; then
         sudo yum install the_silver_searcher htop fasd git-lfs tmux
-    elif [[ "$OSTYPE" == "darwin"* ]]; then  # Mac OSX
+    elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         brew install fasd
     fi
     set +x
