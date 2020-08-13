@@ -229,5 +229,10 @@ select_file() {
     fzf --exact --delimiter=":" --preview="cat {1}" --preview-window=right:70%:wrap --height=100% --query="$given_file"
 }
 
+rm_mendeley_dups() {
+    cd /Users/lucypark/Dropbox/Apps/mendeley
+    ls | grep "(2)" | tr '\n' '\0' | xargs -0 rm
+}
+
 # sed -i '' 's/foo/bar/' file
 # mkvirtualenv myenv --system-site-packages
