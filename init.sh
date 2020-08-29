@@ -55,7 +55,7 @@ if [ $install_dotfiles -eq 1 ]; then
     if [[ $os == "Linux" ]]; then
         sed -i "5s@.*@export HOME=\"$home\"@" $home/.zshrc
     elif [[ $os == "Darwin" ]]; then
-        sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.rshrc
+        sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.zshrc
     fi
 
     # update submodules
