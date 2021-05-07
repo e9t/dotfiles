@@ -49,6 +49,7 @@ alias rscpb='rsync -r --partial --progress --rsh=ssh'
 alias tl='tree -L 2'
 alias wgetr='wget -r --no-parent'
 alias sshuttles='sshuttle -r lovit 0/0'
+alias gpustats='while true; do gpustat -cp; sleep 5; done'
 
 # fasd
 eval "$(fasd --init auto)"
