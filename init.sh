@@ -61,6 +61,7 @@ if [ $install_dotfiles -eq 1 ]; then
     # update submodules
     git submodule init
     git submodule update
+    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
     set +x
 fi

@@ -168,19 +168,6 @@ gp() {
     fi
 }
 
-d() {
-    [[ -n "$1" ]] || { echo "Usage: d [some name]"; return; }
-    docs=$(find $WIKI_DIR -path "*$1*")
-    cnt=$(echo $docs | wc -w)
-    if [ $cnt -eq 1 ]; then
-        vi $docs
-    else
-      for d in $docs; do
-        echo $d
-      done
-    fi
-}
-
 realpath() {
     [[ -n "$1" ]] || { echo "Usage: readlinkf [filename]"; return; }
     echo $PWD/$1
