@@ -63,6 +63,7 @@ if [ -f "$HOME/.fasdrc" ]; then
     . $HOME/.fasdrc
 fi
 alias f='open .' # overwrite f
+alias subl='open -a "Sublime Text"'
 alias emem='sudo bash -c "sync; echo 1 > /proc/sys/vm/drop_caches"'
 
 # github/gist
@@ -113,3 +114,12 @@ fi
 if [ -f "$HOME/.bash_local" ]; then
     . ~/.bash_local
 fi
+
+# for agnoster-zsh-theme
+export DEFAULT_USER="lucypark"
+
+# for konlpy
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# pdflatex
+eval "$(/usr/libexec/path_helper)"
