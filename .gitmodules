@@ -58,3 +58,9 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "/Users/lucypark/.vim/bundle/vim-isort"]
+	path = /Users/lucypark/.vim/bundle/vim-isort
+	url = https://github.com/fisadev/vim-isort
+[submodule ".vim/bundle/vim-isort"]
+	path = .vim/bundle/vim-isort
+	url = https://github.com/fisadev/vim-isort
