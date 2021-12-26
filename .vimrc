@@ -125,9 +125,9 @@ set foldlevel=2
 " colorscheme should come after pathogen
 syntax enable
 set t_Co=256
- let g:solarized_termcolors=256
 set background=dark
-colorscheme leo
+let g:solarized_termcolors=256
+colorscheme solarized
 set colorcolumn=80
 
 
@@ -519,3 +519,8 @@ let g:localvimrc_persistent=2
 " [ctags](https://stackoverflow.com/a/5019111/1054939)
 set tags=tags;/
 nnoremap <leader>. :CtrlPTag<cr>
+
+" Set colorscheme again
+" https://vi.stackexchange.com/a/6728/8217
+highlight htmlBold gui=bold guifg=#af0000 ctermfg=124
+highlight htmlItalic gui=italic guifg=#ff8700 ctermfg=214
