@@ -72,12 +72,13 @@ md2tex() {
     pdf=${1/.markdown/.pdf}
     pandoc --latex-engine=xelatex --include-in-header=$HOME/.my.tex -t beamer $1 -o $pdf
 }
-
 # Hacker's diary
+
 diary() {
     [[ -n "$1" ]] || { echo "Usage: diary [title]"; return; }
 
-    dir=$DIARY_DIR
+    dir=$DIARY_DIR/$(date "+%Y")
+    mkdir -p $dir
     #TODO: filename - transliterate hangul to roman letters
     strip=${1//-/}
     merge=${strip// /-}
@@ -88,16 +89,17 @@ diary() {
     fname=$dir/$(date "+%Y-%m-%d")-$final.md
     echo $fname
 
-    temp[0]="'''"
-    temp[1]="layout: diary"
-    temp[2]="title: $1"
-    temp[3]="date: $(date '+%Y-%m-%d %H:%M')"
-    temp[4]="comments: false"
-    temp[5]="categories: []"
-    temp[6]="original: null"
-    temp[7]="'''"
-
-    printf "%s\n" "${temp[@]}" > $fname
+    if [ ! -e "$fname" ]; then
+        temp[1]="'''"
+        temp[2]="layout: diary"
+        temp[3]="title: $1"
+        temp[4]="date: $(date '+%Y-%m-%d %H:%M')"
+        temp[5]="comments: false"
+        temp[6]="categories: []"
+        temp[7]="original: null"
+        temp[8]="'''"
+        printf "%s\n" "${temp[@]}" > $fname
+    fi
     vi $fname
 }
 
