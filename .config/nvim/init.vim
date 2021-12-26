@@ -12,6 +12,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 
