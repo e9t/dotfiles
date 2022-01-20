@@ -22,9 +22,6 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" For pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 1. General
