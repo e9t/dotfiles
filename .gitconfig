@@ -14,7 +14,7 @@
     ui = true
     pager = true
 [core]
-    editor = vim
+    editor = nvim
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
