@@ -96,6 +96,11 @@ if [ $install_packages -eq 1 ]; then
         brew install neovim
         brew install rbenv ruby-build
     fi
+
+    # Install vim-plug
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
     set +x
 fi
 
