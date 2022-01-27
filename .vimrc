@@ -467,11 +467,8 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if only nerdtree is left
 let NERDTreeShowHidden=1  " show hidden files
 
-" [tagbar](https://github.com/majutsushi/tagbar)
-map <C-b> :TagbarToggle<CR>
-
 " [vim-fugitive](https://github.com/tpope/vim-fugitive)
-map <C-l> :Git blame<CR>
+map <C-b> :Git blame<CR>
 
 " [Syntastic](https://github.com/scrooloose/syntastic)
 set statusline+=%#warningmsg#
