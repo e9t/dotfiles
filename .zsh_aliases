@@ -50,6 +50,7 @@ alias tl='tree -L 2'
 alias wgetr='wget -r --no-parent'
 alias sshuttles='sshuttle -r lovit 0/0'
 alias gpustats='while true; do gpustat -cp; sleep 5; done'
+alias duh='du -h -d 1'
 
 # fasd
 eval "$(fasd --init auto)"
