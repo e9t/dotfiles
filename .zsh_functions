@@ -32,6 +32,12 @@ uless() {
   cat $1 | native2ascii -encoding UTF-8 -reverse | less
 }
 
+
+uforel() {
+  [[ -n "$1" ]] || { echo "Usage: uforel [file]"; return; }
+  jq -C '.images[].relations[]' $1 | less -R
+}
+
 recent() {
     if [ -z "$1" ]
     then
