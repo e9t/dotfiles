@@ -381,6 +381,20 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+" https://github.com/tpope/vim-fugitive/issues/1474
+function! s:BlameToggle() abort
+  let found = 0
+  for winnr in range(1, winnr('$'))
+    if getbufvar(winbufnr(winnr), '&filetype') ==# 'fugitiveblame'
+      exe winnr . 'close'
+      let found = 1
+    endif
+  endfor
+  if !found
+    Git blame
+  endif
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 14. Customized (Overrrides current file settings)
@@ -468,7 +482,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowHidden=1  " show hidden files
 
 " [vim-fugitive](https://github.com/tpope/vim-fugitive)
-map <C-b> :Git blame<CR>
+map <C-b> :call <SID>BlameToggle()<CR>
 
 " [Syntastic](https://github.com/scrooloose/syntastic)
 set statusline+=%#warningmsg#
