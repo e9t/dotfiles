@@ -487,7 +487,7 @@ let g:syntastic_tex_chktex_args='--nowarn=8 --nowarn=44'
 " E221 - multiple spaces before operator
 " E402 - module level import not at top of file
 " E501 - line too long
-let g:syntastic_python_flake8_post_args='--ignore=E221,E402,E501'
+let g:syntastic_python_flake8_post_args='--ignore=E203,W503,E128,E131,E402'
 command! S execute ':SyntasticToggleMode'
 
 " [junegunn/vim-easy-align: A Vim alignment plugin](https://github.com/junegunn/vim-easy-align)
