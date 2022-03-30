@@ -51,6 +51,7 @@ alias wgetr='wget -r --no-parent'
 alias sshuttles='sshuttle -r lovit 0/0'
 alias gpustats='while true; do gpustat -cp; sleep 5; done'
 alias duh='du -h -d 1'
+alias randfile='ls | shuf -n 1'
 
 # fasd
 eval "$(fasd --init auto)"
@@ -83,6 +84,8 @@ alias pyprofile='python -m cProfile --sort=cumulative'
 # tmux
 alias ta='tmux attach -t lucypark || tmux new -s lucypark'
 alias tw='tmux rename-window -t'
+alias randimgcat='convert -resize x300 $(ls | shuf -n 1) - | imgcat'
+alias vii='vi $(fzf)'
 
 # SCM Breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
