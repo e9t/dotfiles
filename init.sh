@@ -88,7 +88,7 @@ if [ $install_packages -eq 1 ]; then
     # NOTE: tmux install by yum installs v1.8, will need manual install
     if [[ $os == "Linux" ]]; then
         sudo apt install the_silver_searcher htop fasd git-lfs tmux
-        sudo apt install neovim
+        sudo apt install neovim fzf
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
