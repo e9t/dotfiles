@@ -221,6 +221,7 @@ rm_mendeley_dups() {
 # mkvirtualenv myenv --system-site-packages
 
 randimgcat() {
+    # requires https://github.com/wookayin/python-imgcat
     randimg=$(ls | shuf -n 1)
     echo ${randimg}
     convert -resize x300 ${randimg} - | imgcat
