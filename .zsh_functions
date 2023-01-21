@@ -219,3 +219,9 @@ rm_mendeley_dups() {
 
 # sed -i '' 's/foo/bar/' file
 # mkvirtualenv myenv --system-site-packages
+
+randimgcat() {
+    randimg=$(ls | shuf -n 1)
+    echo ${randimg}
+    convert -resize x300 ${randimg} - | imgcat
+}

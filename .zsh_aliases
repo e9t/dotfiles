@@ -84,7 +84,6 @@ alias pyprofile='python -m cProfile --sort=cumulative'
 # tmux
 alias ta='tmux attach -t lucypark || tmux new -s lucypark'
 alias tw='tmux rename-window -t'
-alias randimgcat='convert -resize x300 $(ls | shuf -n 1) - | imgcat'  # requires https://github.com/wookayin/python-imgcat
 alias vii='vi $(fzf)'
 
 # SCM Breeze
