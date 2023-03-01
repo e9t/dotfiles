@@ -79,6 +79,7 @@ if [ $install_packages -eq 1 ]; then
         apt install -y silversearcher-ag htop fasd git-lfs tmux
         apt install -y neovim fzf
         apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # for pyenv
+        apt install -y zsh
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -107,5 +108,7 @@ if [ $install_packages -eq 1 ]; then
 
     set +x
 fi
+
+chsh -s $(which zsh)
 
 # vim:sw=4:ts=4:et
