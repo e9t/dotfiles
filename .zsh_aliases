@@ -123,7 +123,7 @@ fi
 export DEFAULT_USER="lucypark"
 
 # for konlpy
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
 
 # pdflatex
-eval "$(/usr/libexec/path_helper)"
+# eval "$(/usr/libexec/path_helper)"
