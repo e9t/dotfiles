@@ -70,6 +70,20 @@ if [ $install_packages -eq 1 ]; then
     echo "# Install packages..."
     set -x  # start debug mode
 
+    # For CentOS 7
+    # NOTE: tmux install by yum installs v1.8, will need manual install
+    if [[ $os == "Linux" ]]; then
+        sudo apt install the_silver_searcher htop fasd git-lfs tmux
+        sudo apt install neovim fzf
+        sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # for pyenv
+    elif [[ $os == "Darwin" ]]; then  # Mac OSX
+        # Install Homebrew
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew install fasd
+        brew install neovim
+        brew install rbenv ruby-build
+    fi
+
     # Start pyenv and install python
     export PYENV_ROOT="$home/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -83,19 +97,6 @@ if [ $install_packages -eq 1 ]; then
 
     # Install python packages
     pip install ipython flake8 gpustat tensorflow-gpu tensorboard konlpy
-
-    # For CentOS 7
-    # NOTE: tmux install by yum installs v1.8, will need manual install
-    if [[ $os == "Linux" ]]; then
-        sudo apt install the_silver_searcher htop fasd git-lfs tmux
-        sudo apt install neovim fzf
-    elif [[ $os == "Darwin" ]]; then  # Mac OSX
-        # Install Homebrew
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        brew install fasd
-        brew install neovim
-        brew install rbenv ruby-build
-    fi
 
     # Install vim-plug
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
