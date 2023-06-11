@@ -101,9 +101,9 @@ alias sourcer='eval "$(rbenv init -)"'
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - --no-rehash)"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init --path)"         # This only sets up the path stuff
+eval "$(pyenv init -)"              # This makes pyenv work in the shell
+eval "$(pyenv virtualenv-init -)"   # Enabling virtualenv so it works natively
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -129,7 +129,7 @@ fi
 export DEFAULT_USER="lucypark"
 
 # for konlpy
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
 
 # pdflatex
-eval "$(/usr/libexec/path_helper)"
+# eval "$(/usr/libexec/path_helper)"

@@ -61,7 +61,9 @@ if [ $install_dotfiles -eq 1 ]; then
     # update submodules
     git submodule init
     git submodule update
-    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+    if [[ ! -d "$home/.rbenv/plugins/ruby-build" ]]; then
+        git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+    fi
 
     set +x
 fi
@@ -70,12 +72,14 @@ if [ $install_packages -eq 1 ]; then
     echo "# Install packages..."
     set -x  # start debug mode
 
-    # For CentOS 7
+    # For Ubuntu
     # NOTE: tmux install by yum installs v1.8, will need manual install
     if [[ $os == "Linux" ]]; then
-        sudo apt install the_silver_searcher htop fasd git-lfs tmux
-        sudo apt install neovim fzf
-        sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # for pyenv
+        apt update
+        apt install -y silversearcher-ag htop fasd git-lfs tmux
+        apt install -y neovim fzf
+        apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # for pyenv
+        apt install -y zsh
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -104,5 +108,7 @@ if [ $install_packages -eq 1 ]; then
 
     set +x
 fi
+
+chsh -s $(which zsh)
 
 # vim:sw=4:ts=4:et
