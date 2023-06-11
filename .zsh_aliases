@@ -6,6 +6,9 @@ if [ -f ~/.bash_constants ]; then
     . ~/.bash_constants
 fi
 
+# Load homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # ----------------------------------------------------------------------------
 # Environment variables
 # ----------------------------------------------------------------------------
@@ -58,8 +61,8 @@ eval "$(fasd --init auto)"
 alias s='fasd -si'                      # show / search / select
 alias c='fasd_cd -b current'            # cd in current folder
 alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
-alias v='fasd -e vim -b current'        # open file in current folder
-alias vv='fasd -e vim -b current -i'    # open file in current folder (interactive)
+alias v='fasd -e nvim -b current'       # open file in current folder
+alias vv='fasd -e nvim -b current -i'   # open file in current folder (interactive)
 alias z='fasd_cd -d'
 alias zz='fasd_cd -d -i'                # global cd (interactive)
 if [ -f "$HOME/.fasdrc" ]; then
@@ -86,6 +89,8 @@ alias ta='tmux attach -t lucypark || tmux new -s lucypark'
 alias tw='tmux rename-window -t'
 alias vii='vi $(fzf)'
 
+alias weather='curl -4 wttr.in/Seoul'
+
 # SCM Breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
@@ -97,6 +102,7 @@ alias sourcer='eval "$(rbenv init -)"'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - --no-rehash)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 # fzf

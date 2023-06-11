@@ -99,7 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Hide the “user@hostname” info
-prompt_context(){}
+prompt_context() {
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+}
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
