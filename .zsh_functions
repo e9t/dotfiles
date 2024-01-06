@@ -1,4 +1,9 @@
-#! /bin/bash
+#! /bin/zsh
+
+# constants
+export DIARY_DIR=""
+export NOTES_DIR=""
+export RESEARCH_DIR=""
 
 # Unicode printing
 ucat() {
@@ -119,6 +124,14 @@ ctex() {
     open ${1/.tex}.pdf
 }
 
+note() {
+    [[ -n "$1" ]] || { echo "Usage: note [title]"; return; }
+
+    fname="$NOTES_DIR/$(date '+%Y-%m-%d') $1.md"
+    echo $fname
+    nvim $fname
+}
+
 remark() {
     cp -r ~/skel/remark/* .
 }
@@ -140,7 +153,7 @@ categories: []
     fi
 
     echo $fname
-    vi $fname
+    nvim $fname
 }
 
 mmd2html() {
