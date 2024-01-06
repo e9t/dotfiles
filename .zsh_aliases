@@ -23,6 +23,7 @@ export CLICOLOR=1
 
 # Linker library
 export LD_LIBRARY_PATH='/usr/local/lib'
+export EDITOR=nvim
 
 
 # ----------------------------------------------------------------------------
@@ -56,18 +57,9 @@ alias gpustats='while true; do gpustat -cp; sleep 5; done'
 alias duh='du -h -d 1'
 alias randfile='ls | shuf -n 1'
 
-# fasd
-eval "$(fasd --init auto)"
-alias s='fasd -si'                      # show / search / select
-alias c='fasd_cd -b current'            # cd in current folder
-alias cc='fasd_cd -b current -i'        # cd in current folder (interactive)
-alias v='fasd -e nvim -b current'       # open file in current folder
-alias vv='fasd -e nvim -b current -i'   # open file in current folder (interactive)
-alias z='fasd_cd -d'
-alias zz='fasd_cd -d -i'                # global cd (interactive)
-if [ -f "$HOME/.fasdrc" ]; then
-    . $HOME/.fasdrc
-fi
+# zoxide
+eval "$(zoxide init zsh)"
+
 alias f='open .' # overwrite f
 alias subl='open -a "Sublime Text"'
 alias emem='sudo bash -c "sync; echo 1 > /proc/sys/vm/drop_caches"'
