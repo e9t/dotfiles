@@ -52,11 +52,11 @@ if [ $install_dotfiles -eq 1 ]; then
     fi
 
     # replace "$HOME with $home"
-    if [[ $os == "Linux" ]]; then
-        sed -i "5s@.*@export HOME=\"$home\"@" $home/.zshrc
-    elif [[ $os == "Darwin" ]]; then
-        sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.zshrc
-    fi
+    # if [[ $os == "Linux" ]]; then
+    #     sed -i "5s@.*@export HOME=\"$home\"@" $home/.zshrc
+    # elif [[ $os == "Darwin" ]]; then
+    #     sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.zshrc
+    # fi
 
     # update submodules
     git submodule init
@@ -83,9 +83,8 @@ if [ $install_packages -eq 1 ]; then
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        brew install fasd
+        brew install zoxide
         brew install neovim
-        brew install rbenv ruby-build
     fi
 
     # Start pyenv and install python
