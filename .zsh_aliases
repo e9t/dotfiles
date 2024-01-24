@@ -6,9 +6,6 @@ if [ -f ~/.bash_constants ]; then
     . ~/.bash_constants
 fi
 
-# Load homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
-
 # ----------------------------------------------------------------------------
 # Environment variables
 # ----------------------------------------------------------------------------
@@ -58,6 +55,7 @@ alias duh='du -h -d 1'
 alias randfile='ls | shuf -n 1'
 
 # zoxide
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
 
 alias f='open .' # overwrite f

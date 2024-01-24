@@ -80,11 +80,20 @@ if [ $install_packages -eq 1 ]; then
         apt install -y neovim fzf
         apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # for pyenv
         apt install -y zsh
+
+        # Install zoxide, if fails, install with the script below
+        # apt install zoxide
+        curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
+        # Install pyenv
+        curl https://pyenv.run | bash
+
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         brew install zoxide
         brew install neovim
+        brew install pyenv
     fi
 
     # Start pyenv and install python
