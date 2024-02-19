@@ -86,7 +86,7 @@ if [ $install_packages -eq 1 ]; then
         curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
         # Install pyenv
-        curl https://pyenv.run | bash
+        # curl https://pyenv.run | bash
 
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
@@ -95,6 +95,10 @@ if [ $install_packages -eq 1 ]; then
         brew install neovim
         brew install pyenv
     fi
+
+    # Install vim-plug
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
     # Start pyenv and install python
     export PYENV_ROOT="$home/.pyenv"
@@ -108,11 +112,7 @@ if [ $install_packages -eq 1 ]; then
     eval "$(pyenv virtualenv-init -)"
 
     # Install python packages
-    pip install ipython flake8 gpustat tensorflow-gpu tensorboard konlpy
-
-    # Install vim-plug
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    # pip install ipython flake8 gpustat
 
     set +x
 fi
