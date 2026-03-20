@@ -47,23 +47,13 @@ if [ $install_dotfiles -eq 1 ]; then
     # clone dotfiles if not exists
     if [[ ! -f "$home/.zshrc" ]]; then
         git clone https://github.com/e9t/dotfiles.git
-        mv dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
+        mv -f dotfiles/* dotfiles/.[^.]* $home || echo "dotfiles already exist"
         rmdir dotfiles
     fi
-
-    # replace "$HOME with $home"
-    # if [[ $os == "Linux" ]]; then
-    #     sed -i "5s@.*@export HOME=\"$home\"@" $home/.zshrc
-    # elif [[ $os == "Darwin" ]]; then
-    #     sed -i '' "5s@.*@export HOME=\"$home\"@" $home/.zshrc
-    # fi
 
     # update submodules
     git submodule init
     git submodule update
-    if [[ ! -d "$home/.rbenv/plugins/ruby-build" ]]; then
-        git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-    fi
 
     set +x
 fi
@@ -94,6 +84,8 @@ if [ $install_packages -eq 1 ]; then
         brew install zoxide
         brew install neovim
         brew install pyenv
+        brew install fzf
+        brew install --cask claude-code
     fi
 
     # Install vim-plug
@@ -104,15 +96,19 @@ if [ $install_packages -eq 1 ]; then
     export PYENV_ROOT="$home/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-    pyenv install 3.10.1
-    pyenv global 3.10.1
+    pyenv install 3.14.3
+    pyenv global 3.14.3
+
+    # scm
+    git clone https://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+    ~/.scm_breeze/install.sh
 
     # Enable pyenv-virtualenv
     git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
     eval "$(pyenv virtualenv-init -)"
 
     # Install python packages
-    # pip install ipython flake8 gpustat
+    brew install uv
 
     set +x
 fi
