@@ -86,6 +86,7 @@ if [ $install_packages -eq 1 ]; then
         brew install pyenv
         brew install fzf
         brew install --cask claude-code
+        brew install --cask ghostty
     fi
 
     # Install vim-plug
