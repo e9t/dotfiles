@@ -81,7 +81,7 @@ if [ $install_packages -eq 1 ]; then
     elif [[ $os == "Darwin" ]]; then  # Mac OSX
         # Install Homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        brew install fzf neovim zoxide
+        brew install fzf neovim the_silver_searcher tree zoxide
         brew install node pnpm
         brew install pyenv
         brew install --cask claude-code
