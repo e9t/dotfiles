@@ -8,7 +8,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude is waiting for you\" with title \"Claude Code\"'"
+            "command": "WIN_NAME=$(tmux display-message -t \"$TMUX_PANE\" -p '#W' 2>/dev/null || echo 'Claude'); osascript -e \"display notification \\\"Claude needs you for \\\\\\\"$WIN_NAME\\\\\\\"\\\" with title \\\"Ghostty\\\"\""
           }
         ]
       }
