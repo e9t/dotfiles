@@ -134,6 +134,9 @@ set colorcolumn=80
 "set guioptions-=T
 "set guioptions-=e
 "set guitablabel=%M\ %t
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
