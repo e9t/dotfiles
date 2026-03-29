@@ -17,6 +17,9 @@ Plug 'vim-syntastic/syntastic'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" Sync with system clipboard
+set clipboard=unnamedplus
+
 " Source vimrc
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
